@@ -11,7 +11,7 @@
     <title>{{ __('Register') }}</title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="{{asset('public/assets/fonts/font-awesome/css/font-awesome.min.css')}}"/>
-    <!-- CSS Files -->
+    <!-- CSS Files as assets    -->
     <link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('public/assets/css/now-ui-kit.css')}}" rel="stylesheet"/>
     <link href="{{asset('public/assets/css/plugins/owl.carousel.css')}}" rel="stylesheet"/>

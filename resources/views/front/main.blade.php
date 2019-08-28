@@ -7,7 +7,7 @@
 @endsection
 
 @section('title')
-    صفحه اصلی
+   خانه صفحه اصلی
 @endsection
 @section('content')
 
