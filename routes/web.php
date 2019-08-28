@@ -38,3 +38,9 @@ Route::get('/clear-cache', function () {
 });
 
 //==============================================================================
+
+
+// categories route
+Route::get('cat/{name}','CategryController@show')->name('category.show');
+
+//end categories route
