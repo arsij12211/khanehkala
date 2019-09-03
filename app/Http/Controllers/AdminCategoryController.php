@@ -65,7 +65,8 @@ class AdminCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category=Category::query()->find($id);
+        return view('admin.category.show',['category'=>$category]);
     }
 
     /**

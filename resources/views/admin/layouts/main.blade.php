@@ -369,7 +369,7 @@
                                 <li><a href="#"><i class="fa fa-circle-o"></i> {{$category->name}}</a></li>
                                 @else
                                 <li class="treeview">
-                                    <a style="cursor: pointer"><i class="fa fa-circle-o"></i><span style="cursor: pointer" class="badge" onclick="redirect('{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}')"> {{$category->name}}</span>
+                                    <a style="cursor: pointer"><i class="fa fa-circle-o"></i><span style="cursor: pointer" class="badge" onclick="redirect('{{route('admincategory.show',['id'=>$category])}}')"> {{$category->name}}</span>
 
                                         <span class="pull-left-container">
                                              <i class="fa fa-angle-right pull-left"></i>

@@ -7,8 +7,7 @@
 
         @foreach($category->childs->all() as $child)
             @if(count($child->childs->all())<1)
-                <li><a href="#"><i class="fa fa-circle-o"></i>{{$child->name}}</a></li>
-
+                <li><a href="{{route('admincategory.show',['id'=>$child->id])}}"><i class="fa fa-circle-o"></i>{{$child->name}}</a></li>
             @else
                 <li class="treeview">
 
