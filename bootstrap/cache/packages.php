@@ -1,9 +1,16 @@
 <?php return array (
-  'nesbot/carbon' => 
+  'barryvdh/laravel-ide-helper' => 
   array (
     'providers' => 
     array (
-      0 => 'Carbon\\Laravel\\ServiceProvider',
+      0 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
+    ),
+  ),
+  'beyondcode/laravel-dump-server' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
   'fideloper/proxy' => 
@@ -20,11 +27,11 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-  'beyondcode/laravel-dump-server' => 
+  'nesbot/carbon' => 
   array (
     'providers' => 
     array (
-      0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
+      0 => 'Carbon\\Laravel\\ServiceProvider',
     ),
   ),
   'nunomaduro/collision' => 
@@ -34,11 +41,15 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
-  'barryvdh/laravel-ide-helper' => 
+  'webpatser/laravel-uuid' => 
   array (
     'providers' => 
     array (
-      0 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
+      0 => 'Webpatser\\Uuid\\UuidServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Uuid' => 'Webpatser\\Uuid\\Uuid',
     ),
   ),
 );

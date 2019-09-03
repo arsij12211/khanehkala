@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="localhost">
+  <component name="PublishConfigData" serverName="isan">
     <serverData>
-      <paths name="bornaitcompany">
+      <paths name="isan">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="isan3">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="localhost">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="khaneKala" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="testDel">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="khanehkala" />
           </mappings>
         </serverdata>
       </paths>
