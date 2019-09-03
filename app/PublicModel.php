@@ -9,6 +9,8 @@
 namespace App;
 
 
+use Illuminate\Http\Request;
+
 class PublicModel implements PublicInterface
 {
  public function slug_format($str){
@@ -20,4 +22,14 @@ class PublicModel implements PublicInterface
  }
 
 
+    public function image(Request $request,$path,$name){
+
+        $file=$request->file($name);
+        $filename=time().$file->getClientOriginalName();
+
+        $file->move($path, $filename);
+
+        return $filename;
+
+    }
 }

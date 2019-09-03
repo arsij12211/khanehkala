@@ -53,6 +53,17 @@ Route::middleware(['admin'])->group(function () {
       Route::get('',function (){
           return view('admin.layouts.main');
       });
+
+
+      //category resource
+        Route::resource('admincategory', 'AdminCategoryController')->only([
+           'create', 'show','store'
+        ]);
+
+
+      //end category resource
+
+
     });
 });
 
