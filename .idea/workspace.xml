@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="846cbbd9-da0c-423d-984b-1bb32642188e" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/cache/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/config.php" afterDir="false" />
@@ -26,6 +27,13 @@
       <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/categorychilds.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/categorychilds.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/main.blade.php" afterDir="false" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +57,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="768">
@@ -59,10 +68,20 @@
             <state relative-caret-position="504">
               <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="68" column="67" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
@@ -77,12 +96,31 @@
               <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="e#66#79#0#PHP" expanded="true" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/category/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://F:/project/html/bornait/topkala/topkala-admin/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="559" column="10" selection-start-line="559" selection-start-column="10" selection-end-line="570" selection-end-column="16" />
+              <folding>
+                <element signature="n#div#3;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
               </folding>
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategryController.php">
@@ -92,6 +130,13 @@
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/PublicInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
@@ -99,36 +144,67 @@
 =======
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
             <state relative-caret-position="3408">
               <caret line="142" column="34" selection-start-line="142" selection-start-column="34" selection-end-line="142" selection-end-column="34" />
+=======
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/category/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="129" selection-end-column="22" />
+              <folding>
+                <element signature="e#141#5563#0#HTML" />
+              </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/PublicModel.php">
+        <entry file="file://F:/project/html/bornait/topkala/topkala-admin/pages/forms/advanced.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="408">
               <caret line="22" selection-start-line="22" selection-end-line="22" />
+=======
+            <state relative-caret-position="8908">
+              <caret line="524" column="3" selection-start-line="524" selection-start-column="3" selection-end-line="894" selection-end-column="10" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Category.php">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="288">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
+=======
+            <state relative-caret-position="244">
+              <caret line="58" column="38" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="38" />
+              <folding>
+                <element signature="e#7#389#0#PHP" expanded="true" />
+              </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/sub/myheader.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/main.blade.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="3552">
               <caret line="148" column="95" selection-start-line="148" selection-start-column="95" selection-end-line="148" selection-end-column="95" />
 =======
@@ -142,6 +218,10 @@
               <caret line="29" column="38" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="38" />
               <caret line="30" column="34" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="34" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+            <state relative-caret-position="179">
+              <caret line="371" column="201" selection-start-line="371" selection-start-column="201" selection-end-line="371" selection-end-column="201" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </state>
           </provider>
         </entry>
@@ -160,6 +240,12 @@
       <find>ورود</find>
       <find>khane</find>
       <find>value</find>
+      <find>-&gt;</find>
+      <find>مح</find>
+      <find>محصولا</find>
+      <find>قدرت</find>
+      <find>معم</find>
+      <find>محص</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\khaneKala\resources\views</dir>
@@ -190,13 +276,11 @@
         <option value="$PROJECT_DIR$/resources/views/front/main.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_28_174708_create_categories_table.php" />
         <option value="$PROJECT_DIR$/app/Category.php" />
-        <option value="$PROJECT_DIR$/app/PublicInterface.php" />
-        <option value="$PROJECT_DIR$/app/PublicModel.php" />
         <option value="$PROJECT_DIR$/resources/views/sub/myheader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/category_childs.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategryController.php" />
         <option value="$PROJECT_DIR$/readme.md" />
+<<<<<<< HEAD
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/.env" />
 =======
@@ -205,6 +289,22 @@
         <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/categorychilds.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_09_02_184923_create_helps_table.php" />
+        <option value="$PROJECT_DIR$/public/admin/index.html" />
+        <option value="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/PublicInterface.php" />
+        <option value="$PROJECT_DIR$/app/PublicModel.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/main.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/categorychilds.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminCategoryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/category/show.blade.php" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
       </list>
     </option>
   </component>
@@ -348,6 +448,7 @@
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
             </path>
             <path>
+<<<<<<< HEAD
               <item name="khanehkala" type="b2602c69:ProjectViewProjectNode" />
               <item name="khanehkala" type="462c0819:PsiDirectoryNode" />
 <<<<<<< HEAD
@@ -356,6 +457,32 @@
 =======
               <item name="routes" type="462c0819:PsiDirectoryNode" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+              <item name="khaneKala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="khaneKala" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="khaneKala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="khaneKala" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="khaneKala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="khaneKala" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="khaneKala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="khaneKala" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="category" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             </path>
           </expand>
           <select />
@@ -366,7 +493,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../digi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -377,20 +504,33 @@
     <property name="settings.editor.selected.configurable" value="sshConsole" />
   </component>
   <component name="RecentsManager">
+<<<<<<< HEAD
     <key name="CopyFile.RECENT_KEYS">
 <<<<<<< HEAD
       <recent name="C:\xampp\htdocs\khanehkala" />
 =======
       <recent name="C:\xampp\htdocs\khanehkala\public\assets\img\testPic" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\khaneKala\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\khaneKala" />
+      <recent name="C:\xampp\htdocs\khaneKala\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\khaneKala\public\admin" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
       <recent name="C:\xampp\htdocs\khaneKala" />
       <recent name="C:\xampp\htdocs\khaneKala\public" />
       <recent name="C:\xampp\htdocs\khaneKala\resources\views\sub" />
       <recent name="C:\xampp\htdocs\khaneKala\resources\views\front" />
+<<<<<<< HEAD
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\khaneKala" />
       <recent name="C:\xampp\htdocs\khaneKala\public" />
+=======
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
     </key>
   </component>
   <component name="RunDashboard">
@@ -424,6 +564,7 @@
       <workItem from="1566713685454" duration="35178000" />
       <workItem from="1567013358995" duration="7328000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1567066773931" duration="2184000" />
       <workItem from="1567569428311" duration="157000" />
       <workItem from="1567570441409" duration="3487000" />
@@ -433,17 +574,30 @@
       <workItem from="1567164387740" duration="14371000" />
       <workItem from="1567327317644" duration="1887000" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+      <workItem from="1567067004154" duration="885000" />
+      <workItem from="1567242226885" duration="1495000" />
+      <workItem from="1567244963530" duration="5407000" />
+      <workItem from="1567317558386" duration="967000" />
+      <workItem from="1567447566778" duration="7932000" />
+      <workItem from="1567493679314" duration="1788000" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="50091000" />
+=======
+    <option name="totallyTimeSpent" value="60980000" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26834863" />
 =======
     <option name="totallyTimeSpent" value="59307000" />
@@ -453,6 +607,9 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1852349" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18712121" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -468,10 +625,14 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.29333332" />
 =======
       <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40782124" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.049261082" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -672,13 +833,18 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
+<<<<<<< HEAD
           <first_editor relative-caret-position="216">
+=======
+          <first_editor relative-caret-position="153">
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
             <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -699,6 +865,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+=======
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts.php" />
+    <entry file="file://$PROJECT_DIR$/resources/views/sub/myheader.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="148" column="95" selection-start-line="148" selection-start-column="95" selection-end-line="148" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/admin.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
@@ -726,24 +920,59 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="288">
           <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
 =======
         <state relative-caret-position="336">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
+=======
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/PublicModel.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/category_childs.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="476">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
 >>>>>>> 4f9db5f2c796154fec6d6141a75e44b17d571608
+=======
+        <state relative-caret-position="51">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_02_184923_create_helps_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="768">
           <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
@@ -778,18 +1007,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
+=======
+        <state relative-caret-position="170">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Category.php">
+    <entry file="file://F:/project/html/bornait/topkala/topkala-admin/pages/forms/advanced.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="288">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
+=======
+        <state relative-caret-position="8908">
+          <caret line="524" column="3" selection-start-line="524" selection-start-column="3" selection-end-line="894" selection-end-column="10" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sub/myheader.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/PublicModel.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="3552">
           <caret line="148" column="95" selection-start-line="148" selection-start-column="95" selection-end-line="148" selection-end-column="95" />
         </state>
@@ -807,11 +1053,28 @@
 =======
         <state relative-caret-position="612">
           <caret line="148" column="95" selection-start-line="148" selection-start-column="95" selection-end-line="148" selection-end-column="95" />
+=======
+        <state relative-caret-position="408">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9588">
+          <caret line="586" column="8" selection-start-line="586" selection-start-column="8" selection-end-line="720" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#3;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1204">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
@@ -848,10 +1111,55 @@
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
+=======
+        <state relative-caret-position="244">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="38" />
+          <folding>
+            <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="371" column="201" selection-start-line="371" selection-start-column="201" selection-end-line="371" selection-end-column="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/categorychilds.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#337#360#0#HTML" expanded="true" />
+            <element signature="e#397#420#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="68" column="67" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="129" selection-end-column="22" />
+          <folding>
+            <element signature="e#141#5563#0#HTML" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -897,6 +1205,22 @@
           <folding>
             <element signature="e#66#79#0#PHP" expanded="true" />
           </folding>
+=======
+    <entry file="file://F:/project/html/bornait/topkala/topkala-admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="559" column="10" selection-start-line="559" selection-start-column="10" selection-end-line="570" selection-end-column="16" />
+          <folding>
+            <element signature="n#div#3;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
+>>>>>>> 46f5b3dd2393201aee713a072603296dbe716c55
         </state>
       </provider>
     </entry>

@@ -44,3 +44,28 @@ Route::get('/clear-cache', function () {
 Route::get('cat/{name}','CategryController@show')->name('category.show');
 
 //end categories route
+
+
+
+//************************************ADMIN ROUTE **********************
+Route::middleware(['admin'])->group(function () {
+    Route::prefix('admin')->group(function () {
+      Route::get('',function (){
+          return view('admin.layouts.main');
+      });
+
+
+      //category resource
+        Route::resource('admincategory', 'AdminCategoryController')->only([
+           'create', 'show','store'
+        ]);
+
+
+      //end category resource
+
+
+    });
+});
+
+
+//************************************ END ADMIN ROUTE **********************
