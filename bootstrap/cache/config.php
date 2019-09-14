@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:3ITNgumkFCN3q18eMUjkIEIuuZYlpx23siHoHCd/jb0=',
+    'key' => 'base64:42F4qLwSPiSVGS37APvEuvbQQFNrSwQisNkOnOG235Y=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -174,7 +174,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -310,12 +310,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -355,7 +355,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\khaneKala/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\xampp\\htdocs\\khanehkala/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (
@@ -418,13 +418,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -488,7 +488,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\khaneKala\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\khanehkala\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -581,7 +581,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -601,9 +601,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\khaneKala\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\khanehkala\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\khaneKala\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\khanehkala\\storage\\framework\\views',
   ),
   'debug-server' => 
   array (
