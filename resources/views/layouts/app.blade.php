@@ -10,6 +10,8 @@
     <meta name="robots" content="all">
     @yield('meta')
 
+    <title>@yield('title') || خانه موبایل</title>
+
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('public/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{asset('public/assets/img/favicon.png')}}">
 
@@ -26,7 +28,6 @@
     </style>
     @yield('css')
 
-    <title>@yield('title') || خانه موبایل</title>
 
 
 </head>

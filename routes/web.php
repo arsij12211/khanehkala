@@ -12,19 +12,22 @@
 */
 
 
-
 Route::get('/', function () {
     return view('front.main');
 })->name('urlMain');
+
+Route::group(['prefix' => '/', 'namespace' => 'Site'], function () {
+
+    Route::get('/productMore/{slug?}', 'ProductControllers@productMore')->name('productMore');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/test', function (){
-    return "salam ok shod;";
-})->name('test');
+//================================Alaki Controller==============================
+Route::get('/convert', 'AlakiController@convertMyTableToProducts')->name('convert');
 
 
 //==============================================================================
@@ -41,27 +44,29 @@ Route::get('/clear-cache', function () {
 
 
 // categories route
-Route::get('cat/{name}','CategryController@show')->name('category.show');
+Route::get('cat/{name}', 'CategryController@show')->name('category.show');
 
 //end categories route
 
-
+//  Shop routes
+Route::post('/addcart', 'ShopControllers@addcart')->name('addcart');
+//  end of Shop routes
 
 //************************************ADMIN ROUTE **********************
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
-      Route::get('',function (){
-          return view('admin.layouts.main');
-      });
+        Route::get('', function () {
+            return view('admin.layouts.main');
+        });
 
 
-      //category resource
+        //category resource
         Route::resource('admincategory', 'AdminCategoryController')->only([
-           'create', 'show','store'
+            'create', 'show', 'store'
         ]);
 
 
-      //end category resource
+        //end category resource
 
 
     });

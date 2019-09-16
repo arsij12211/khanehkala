@@ -6,7 +6,7 @@
  * Time: 10:41 PM
  */
 
-namespace App;
+namespace App\Models;
 use Illuminate\Http\Request;
 
 interface PublicInterface
