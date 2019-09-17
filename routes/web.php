@@ -17,8 +17,11 @@ Route::get('/', function () {
 })->name('urlMain');
 
 Route::group(['prefix' => '/', 'namespace' => 'Site'], function () {
-
+    // product
     Route::get('/productMore/{slug?}', 'ProductControllers@productMore')->name('productMore');
+
+    // shop
+    Route::get('/addcart/{id}', 'ShopControllers@addcart')->name('addcart');
 });
 
 Auth::routes();
@@ -49,7 +52,7 @@ Route::get('cat/{name}', 'CategryController@show')->name('category.show');
 //end categories route
 
 //  Shop routes
-Route::post('/addcart', 'ShopControllers@addcart')->name('addcart');
+
 //  end of Shop routes
 
 //************************************ADMIN ROUTE **********************

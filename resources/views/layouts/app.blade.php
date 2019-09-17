@@ -84,11 +84,13 @@
 <script src="{{asset('public/assets/js/plugins/countdown.min.js')}}" type="text/javascript"></script>
 <!--  Plugin for Sliders -->
 <script src="{{asset('public/assets/js/plugins/owl.carousel.min.js')}}" type="text/javascript"></script>
+<!--  sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <!--  Jquery easing -->
 <script src="{{asset('public/assets/js/plugins/jquery.easing.1.3.min.js')}}" type="text/javascript"></script>
 <!--  LocalSearch -->
 <script src="{{asset('public/assets/js/plugins/JsLocalSearch.js')}}" type="text/javascript"></script>
 <!-- Main Js -->
 <script src="{{asset('public/assets/js/main.js')}}" type="text/javascript"></script>
-
+@yield('js')
 </html>

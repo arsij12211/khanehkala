@@ -11,8 +11,8 @@ class ProductControllers extends Controller
     public function productMore($slug=null)
     {
         $product=Product::find($slug);
-        $product1=Product::find(1);
-        dd($product1);
-        return view('front.productMore');
+        $product=Product::find(1);
+
+        return view('front.productMore',compact('product'));
     }
 }
