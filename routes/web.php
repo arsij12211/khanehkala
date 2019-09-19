@@ -36,7 +36,7 @@ Route::get('/convert', 'AlakiController@convertMyTableToProducts')->name('conver
 //==============================================================================
 Route::get('/clear-cache', function () {
 //    $exitCode = Artisan::call('optimize');
-    $exitCode = Artisan::call('config:clear');
+//    $exitCode = Artisan::call('config:clear');
     $exitCode = Artisan::call('view:clear');
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('config:cache');

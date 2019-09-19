@@ -140,14 +140,14 @@
     <nav class="main-menu">
         <div class="container">
             <ul class="list float-right">
-                @foreach(\App\Models\Category::query()->where('parent_id','=',0)->get() as $category)
+                @foreach(\App\Category::query()->where('parent_id','=',0)->get() as $category)
                    @if(empty($category->childs))
                         <li class="list-item">
-                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\Models\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
+                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
                         </li>
                        @else
                         <li class="list-item list-item-has-children mega-menu mega-menu-col-5" >
-                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\Models\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
+                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
                             <ul class="sub-menu nav">
                                 @include('layouts.category_childs',['childs'=>$category->childs->all()])
                                 <img src="{{asset('public/assets/img/1636.png')}}" alt="">

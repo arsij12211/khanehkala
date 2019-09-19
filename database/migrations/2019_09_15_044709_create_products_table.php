@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price_main', 13, 0)->default(0);
             $table->decimal('price_off', 13, 0)->default(0);
             $table->string('special')->nullable();
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->integer('active')->default(1);
             $table->integer('position')->default(0)->nullable();
             $table->integer('totalSelling')->default(0);

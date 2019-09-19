@@ -30,11 +30,12 @@
     26 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     27 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
     28 => 'Webpatser\\Uuid\\UuidServiceProvider',
-    29 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
-    30 => 'App\\Providers\\AppServiceProvider',
-    31 => 'App\\Providers\\AuthServiceProvider',
-    32 => 'App\\Providers\\EventServiceProvider',
-    33 => 'App\\Providers\\RouteServiceProvider',
+    29 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
+    30 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
+    31 => 'App\\Providers\\AppServiceProvider',
+    32 => 'App\\Providers\\AuthServiceProvider',
+    33 => 'App\\Providers\\EventServiceProvider',
+    34 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -52,10 +53,11 @@
     11 => 'Carbon\\Laravel\\ServiceProvider',
     12 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     13 => 'Webpatser\\Uuid\\UuidServiceProvider',
-    14 => 'App\\Providers\\AppServiceProvider',
-    15 => 'App\\Providers\\AuthServiceProvider',
-    16 => 'App\\Providers\\EventServiceProvider',
-    17 => 'App\\Providers\\RouteServiceProvider',
+    14 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
+    15 => 'App\\Providers\\AppServiceProvider',
+    16 => 'App\\Providers\\AuthServiceProvider',
+    17 => 'App\\Providers\\EventServiceProvider',
+    18 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (

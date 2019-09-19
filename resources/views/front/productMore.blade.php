@@ -1115,6 +1115,15 @@
                     url: url,
                     success: function (data) {
 
+                        console.log(data[0]);
+                        console.log(data[0][0].product_id);
+                        console.table(data.cartSend);
+                        Swal.fire({
+                            type:'success',
+                            title:'موفقیت آمیز',
+                            text:'محصول با موفقیت، به سبد خرید اضافه گردید!',
+                        });
+                        // =====================================================
                         $('.product-summary').remove();
                         $('.SeparatorCart').remove();
                         var i;

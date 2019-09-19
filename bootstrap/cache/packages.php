@@ -52,4 +52,11 @@
       'Uuid' => 'Webpatser\\Uuid\\Uuid',
     ),
   ),
+  'cviebrock/eloquent-sluggable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
+    ),
+  ),
 );

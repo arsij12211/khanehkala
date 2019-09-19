@@ -17,9 +17,9 @@ class AlakiController extends Controller
 //        dd(Category::count());
 
         if (Category::count() > 0) {
-            Product::truncate();
 
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+            Product::truncate();
             Category::truncate();
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         }
@@ -38,7 +38,6 @@ class AlakiController extends Controller
                 'image' => $item->image,
                 'price_main' => $item->price_main,
                 'price_off' => $item->price_off,
-                'slug' => Str::slug($item->name) . $i,
                 'position' => $item->position,
                 'number' => $item->number,
             ]);
