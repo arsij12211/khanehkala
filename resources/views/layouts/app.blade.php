@@ -10,6 +10,8 @@
     <meta name="robots" content="all">
     @yield('meta')
 
+    <title>@yield('title') || خانه موبایل</title>
+
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('public/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{asset('public/assets/img/favicon.png')}}">
 
@@ -26,7 +28,6 @@
     </style>
     @yield('css')
 
-    <title>@yield('title') || خانه موبایل</title>
 
 
 </head>
@@ -83,11 +84,13 @@
 <script src="{{asset('public/assets/js/plugins/countdown.min.js')}}" type="text/javascript"></script>
 <!--  Plugin for Sliders -->
 <script src="{{asset('public/assets/js/plugins/owl.carousel.min.js')}}" type="text/javascript"></script>
+<!--  sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <!--  Jquery easing -->
 <script src="{{asset('public/assets/js/plugins/jquery.easing.1.3.min.js')}}" type="text/javascript"></script>
 <!--  LocalSearch -->
 <script src="{{asset('public/assets/js/plugins/JsLocalSearch.js')}}" type="text/javascript"></script>
 <!-- Main Js -->
 <script src="{{asset('public/assets/js/main.js')}}" type="text/javascript"></script>
-
+@yield('js')
 </html>

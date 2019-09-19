@@ -7,7 +7,7 @@
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
-    'locale' => 'en',
+    'locale' => 'fa',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => 'base64:tG6h0FMMoUFzyhUNi9SxWErK8LUozuPYE9RGEdZuXmA=',
@@ -596,6 +596,19 @@
     'secure' => false,
     'http_only' => true,
     'same_site' => NULL,
+  ),
+  'sluggable' => 
+  array (
+    'source' => NULL,
+    'maxLength' => NULL,
+    'maxLengthKeepWords' => true,
+    'method' => NULL,
+    'separator' => '-',
+    'unique' => true,
+    'uniqueSuffix' => NULL,
+    'includeTrashed' => false,
+    'reserved' => NULL,
+    'onUpdate' => false,
   ),
   'view' => 
   array (

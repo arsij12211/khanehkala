@@ -7,10 +7,11 @@
  */
 
 namespace App;
-
+use Illuminate\Http\Request;
 
 interface PublicInterface
 {
 public function slug_format($str);
 public function name_format($str);
+public function image(Request $request,$path,$name);
 }
