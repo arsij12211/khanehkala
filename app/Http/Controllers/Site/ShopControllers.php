@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Models\Cart;
-use App\Models\Product;
-use App\Models\PublicModel;
+use App\Cart;
+use App\Product;
+use App\PublicModel;
 use Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,10 +34,16 @@ class ShopControllers extends Controller
 
         if (Session::has('cart')) {
             $cart = Session::get('cart');
-
-            Cart::createMany(
-                $cart
-            );
+            $arrIndex = array_keys($cart);
+            for ($i = 0; $i < count($cart); $i++) {
+                Cart::create([
+                    'user_id' => $userId,
+                    'product_id' => $cart[$arrIndex[$i]]['product_id'],
+                    'myCookei' => $cart[$arrIndex[$i]]['myCookei'],
+                    'user_ip' => $cart[$arrIndex[$i]]['user_ip'],
+                    'number' => $cart[$arrIndex[$i]]['number'],
+                ]);
+            }
 
             if (isset($cart[$id])) {
                 $cart[$id]['number']++;
@@ -100,17 +106,17 @@ class ShopControllers extends Controller
             if ($productId != $id) {
                 $productOther = \DB::table('products')->where('id', $productId)->first();
                 $cartSend[$i]['product_name'] = $productOther->name;
-                $cartSend[$i]['product_price'] = $productOther->price_main;
+                $cartSend[$i]['product_price'] = number_format($productOther->price_main);
             } else {
                 $cartSend[$i]['product_name'] = $productCurrent->name;
-                $cartSend[$i]['product_price'] = $productCurrent->price_main;
+                $cartSend[$i]['product_price'] = number_format($productCurrent->price_main);
             }
 
             $cartSend[$i]['product_number'] = $cart[$cartIndex[$i]]['number'];
         }
 
         dump($cartSend);
-        dump(Session::get('cart'));
+//        dump(Session::get('cart'));
         return [
             $cartSend
         ];

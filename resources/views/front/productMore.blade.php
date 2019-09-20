@@ -272,9 +272,9 @@
                                          data-zoom-image="{{$product->image}}"
                                          width="411"/>
                                     {{--<img class="zoom-img" id="img-product-zoom"--}}
-                                         {{--src="{{asset('public/assets/img/product/1335154.jpg')}}"--}}
-                                         {{--data-zoom-image="{{asset('public/assets/img/product/13351544.jpg')}}"--}}
-                                         {{--width="411"/>--}}
+                                    {{--src="{{asset('public/assets/img/product/1335154.jpg')}}"--}}
+                                    {{--data-zoom-image="{{asset('public/assets/img/product/13351544.jpg')}}"--}}
+                                    {{--width="411"/>--}}
 
                                     <div id="gallery_01f" style="width:500px;float:left;">
                                         <ul class="gallery-items owl-carousel owl-theme" id="gallery-slider">
@@ -1120,15 +1120,29 @@
                     url: url,
                     success: function (data) {
 
-                        console.log(data[0]);
-                        console.log(data[0][0].product_id);
-                        console.table(data.cartSend);
+                        console.table(data[0]);
+                        $("#numberOfCarts").fadeIn(200, function () {
+                            $(this).text(data[0].length);
+                        });
+
+                        let priceOfCarts=0;
+                        console.log(data[0][0]['product_price']);
+                        for (let i = 0; i < data[0].length; i++) {
+                            console.log((data[0][i]['product_price']),(data[0][i]['product_number']));
+                            priceOfCarts += (parseFloat(data[0][i]['product_price'])*parseFloat(data[0][i]['product_number']));
+                        }
+
+                        $("#priceOfCarts").fadeIn(200, function () {
+                            $(this).text(priceOfCarts);
+                        });
+                        // console.table(data.cartSend);
                         Swal.fire({
-                            type:'success',
-                            title:'موفقیت آمیز',
-                            text:'محصول با موفقیت، به سبد خرید اضافه گردید!',
+                            type: 'success',
+                            title: 'موفقیت آمیز',
+                            text: 'محصول با موفقیت، به سبد خرید اضافه گردید!',
                         });
                         // =====================================================
+                        /*
                         $('.product-summary').remove();
                         $('.SeparatorCart').remove();
                         var i;
@@ -1171,6 +1185,7 @@
 
                         // console.table(data);
                         swal("موفق", "محصول با موفقیت به سبد خرید اضافه شد", "success");
+                        // */
                     }, error: function (error) {
                         console.log('ERROR 1');
                         swal("", "محصول به سبد خرید اضافه نگردید.", "error");

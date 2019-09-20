@@ -5,7 +5,6 @@
 use App\Models\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
-use Webpatser\Uuid\Uuid;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'mobile' => $mobile,
         'mobile_temp' => $mobile,
-        'uuid' => Uuid::generate(4)->string,
+        'uuid' => time(),
         'user_ip' => $faker->ipv4,
         'activation_code' => generate_active_code(6),
         'about_me' => $faker->realText(120),

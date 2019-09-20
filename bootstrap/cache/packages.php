@@ -13,13 +13,6 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
-  'cviebrock/eloquent-sluggable' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
-    ),
-  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
@@ -46,17 +39,6 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ),
-  ),
-  'webpatser/laravel-uuid' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Webpatser\\Uuid\\UuidServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Uuid' => 'Webpatser\\Uuid\\Uuid',
     ),
   ),
 );

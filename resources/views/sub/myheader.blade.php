@@ -65,7 +65,8 @@
                                 <a href="{{route('login')}}" class="btn btn-info">ورود به تاپ کالا</a>
                             </div>
                             <div class="dropdown-item font-weight-bold">
-                                <span>کاربر جدید هستید؟</span> <a href="{{route('register')}}" class="register">ثبت‌نام</a>
+                                <span>کاربر جدید هستید؟</span> <a href="{{route('register')}}"
+                                                                  class="register">ثبت‌نام</a>
                             </div>
                             <hr>
                         @endguest
@@ -95,13 +96,25 @@
                     <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink1">
                         <img src="{{asset('public/assets/img/shopping-cart.png')}}" alt="">
                         سبد خرید
-                        <span class="count-cart">2</span>
+                        <span class="count-cart" id="numberOfCarts">
+                            @if(isset($numberOfCarts))
+                                {{$numberOfCarts}}
+                            @else
+                                0
+                            @endif
+                        </span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                         <div class="basket-header">
                             <div class="basket-total">
                                 <span>مبلغ کل خرید:</span>
-                                <span> ۲۳,۵۰۰</span>
+                                <span id="priceOfCarts">
+                                    @if(isset($priceOfCarts))
+                                        {{$priceOfCarts}}
+                                    @else
+                                        0
+                                    @endif
+                                </span>
                                 <span> تومان</span>
                             </div>
                             <a href="#" class="basket-link">
@@ -141,19 +154,21 @@
         <div class="container">
             <ul class="list float-right">
                 @foreach(\App\Category::query()->where('parent_id','=',0)->get() as $category)
-                   @if(empty($category->childs))
+                    @if(empty($category->childs))
                         <li class="list-item">
-                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
+                            <a class="nav-link"
+                               href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
                         </li>
-                       @else
-                        <li class="list-item list-item-has-children mega-menu mega-menu-col-5" >
-                            <a class="nav-link" href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
+                    @else
+                        <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                            <a class="nav-link"
+                               href="{{route('category.show',['name'=>(new \App\PublicModel())->slug_format($category->name)])}}">{{$category->name}}</a>
                             <ul class="sub-menu nav">
                                 @include('layouts.category_childs',['childs'=>$category->childs->all()])
                                 <img src="{{asset('public/assets/img/1636.png')}}" alt="">
                             </ul>
                         </li>
-                   @endif
+                    @endif
 
                 @endforeach
                 <li class="list-item amazing-item">

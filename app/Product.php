@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Cviebrock\EloquentSluggable\Sluggable;
+//use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use Sluggable;
+//    use Sluggable;
 
     protected $fillable = ['category_id', 'name', 'image', 'details', 'price_main', 'price_off', 'special', 'slug', 'active', 'position', 'totalSelling', 'latest', 'totalVisited', 'number'];
 
@@ -16,12 +16,12 @@ class Product extends Model
 //        return 'slug';
 //    }
 
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
+//    public function sluggable()
+//    {
+//        return [
+//            'slug' => [
+//                'source' => 'name'
+//            ]
+//        ];
+//    }
 }
