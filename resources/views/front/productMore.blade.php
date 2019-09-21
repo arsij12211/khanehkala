@@ -1168,11 +1168,29 @@
                         }
 
                         $("ul.basket-list").html('');
-                        $("ul.basket-list").append(rowCart)
+                        $("ul.basket-list").append(rowCart);
                         $("#priceOfCarts").fadeIn(200, function () {
                             $(this).text(strToMoney(priceOfCarts));
                         });
-                        // console.table(data.cartSend);
+
+                        if (data.length > 0){
+                            var spanTag=document.createElement("span");
+                            var spanText = document.createTextNode("مشاهده ی سبد خرید");
+                            spanTag.appendChild(spanText);
+
+                            var divTag=document.createElement("div");
+                            divTag.className="basket-arrow";
+
+                            var linkTag=document.createElement("a");
+                            linkTag.title = "سبد خرید";
+                            linkTag.href = "./seecart";
+                            linkTag.className = "basket-link";
+                            linkTag.appendChild(spanTag);
+                            linkTag.appendChild(divTag);
+
+                            document.getElementById("basket-header-id").appendChild(linkTag);
+                        }
+
                         Swal.fire({
                             type: 'success',
                             title: 'موفقیت آمیز',

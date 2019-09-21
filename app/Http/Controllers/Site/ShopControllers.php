@@ -15,6 +15,7 @@ use Session;
 
 class ShopControllers extends Controller
 {
+    use UpdateCart;
     /*
      *
      */
@@ -136,5 +137,14 @@ class ShopControllers extends Controller
 //        return [
 //            $cartSend
 //        ];
+    }
+
+    public function seecart()
+    {
+        $updateallcarts = $this->updateAllCarts();
+        $priceOfCarts = $updateallcarts[0];
+        $numberOfCarts = $updateallcarts[1];
+
+        return view('front.seeCart', compact('product', 'numberOfCarts', 'priceOfCarts'));
     }
 }

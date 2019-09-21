@@ -105,7 +105,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                        <div class="basket-header">
+                        <div class="basket-header" id="basket-header-id">
                             <div class="basket-total">
                                 <span>مبلغ کل خرید:</span>
                                 <span id="priceOfCarts">
@@ -117,10 +117,12 @@
                                 </span>
                                 <span> تومان</span>
                             </div>
-                            <a href="#" class="basket-link">
-                                <span>مشاهده سبد خرید</span>
-                                <div class="basket-arrow"></div>
-                            </a>
+                            @if (Session::has('cart'))
+                                <a id="seecart" href="{{route('seecart')}}" class="basket-link">
+                                    <span>مشاهده سبد خرید</span>
+                                    <div class="basket-arrow"></div>
+                                </a>
+                            @endif
                         </div>
                         <ul class="basket-list">
                             @if(Session::has('cart'))
@@ -152,10 +154,18 @@
                                     </li>
                                 @endfor
                             @else
-                                
+                                <li style="text-align: center;">
+                                    <div class="basket-item-content" style="padding: 5%">
+                                        سبد خرید شما خالی هست!
+                                    </div>
+                                </li>
                             @endif
                         </ul>
-                        <a href="#" class="basket-submit">ورود و ثبت سفارش</a>
+                        @if (Session::has('cart'))
+                            <a href="#" class="basket-submit">ورود و ثبت سفارش</a>
+                        @else
+                            <a style="background-color: #bbfff7;color: gray;" class="basket-submit">ورود و ثبت سفارش</a>
+                        @endif
                     </ul>
                 </div>
             </div>

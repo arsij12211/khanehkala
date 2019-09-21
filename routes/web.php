@@ -22,6 +22,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Site'], function () {
 
     // shop
     Route::get('/addcart/{id}', 'ShopControllers@addcart')->name('addcart');
+    Route::get('/seecart', 'ShopControllers@seecart')->name('seecart');
 });
 
 Auth::routes();
