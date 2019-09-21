@@ -1145,7 +1145,7 @@
                         let priceOfCarts = 0;
                         let rowCart = '';
                         console.table((data));
-                        console.log(parseFloat(data[1]['product_price']));
+                        // console.log(parseFloat(data[1]['product_price']));
                         for (let i = 0; i < data.length; i++) {
                             priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
 

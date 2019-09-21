@@ -124,8 +124,7 @@
                         </div>
                         <ul class="basket-list">
                             @if(Session::has('cart'))
-
-                                @php($cartAll = Session::get('cart')))
+                                @php($cartAll = Session::get('cart'))
                                 @php($arrIndex = array_keys($cartAll))
 
                                 @for ($i = 0; $i < count($cartAll); $i++)
@@ -153,6 +152,7 @@
                                     </li>
                                 @endfor
                             @else
+                                
                             @endif
                         </ul>
                         <a href="#" class="basket-submit">ورود و ثبت سفارش</a>
