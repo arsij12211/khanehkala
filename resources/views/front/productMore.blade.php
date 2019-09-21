@@ -1120,18 +1120,36 @@
                     url: url,
                     success: function (data) {
 
-                        console.table(data[0]);
                         $("#numberOfCarts").fadeIn(200, function () {
-                            $(this).text(data[0].length);
+                            $(this).text(data.length);
                         });
 
-                        let priceOfCarts=0;
-                        console.log(data[0][0]['product_price']);
-                        for (let i = 0; i < data[0].length; i++) {
-                            console.log((data[0][i]['product_price']),(data[0][i]['product_number']));
-                            priceOfCarts += (parseFloat(data[0][i]['product_price'])*parseFloat(data[0][i]['product_number']));
+                        let priceOfCarts = 0;
+                        let rowCart = '';
+                        console.table((data));
+                        for (let i = 0; i < data.length; i++) {
+                            priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
+
+                            rowCart += "<li><a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
+                                "<button class=\"basket-item-remove\"></button>" +
+                                "<div class=\"basket-item-content\">" +
+                                    "<div class=\"basket-item-image\"><img alt='"+data[i]['product_name']+"' src='"+data[i]['product_image']+"'> " +
+                                    "</div>" +
+                                    "<div class=\"basket-item-details\">" +
+                                        "<div class=\"basket-item-title\">"+data[i]['product_name']+
+                                        "</div>"+
+                                        "<div class=\"basket-item-params\">" +
+                                            "<div class=\"basket-item-props\">" +
+                                                "<span>"+data[i]['product_number']+"</span><span>رنگ مشکی</span>" +
+                                            "</div>" +
+                                        "</div>" +
+                                    "</div>" +
+                                "</div>" +
+                                "</a></li>";
                         }
 
+                        $("ul.basket-list").html('');
+                        $("ul.basket-list").append(rowCart)
                         $("#priceOfCarts").fadeIn(200, function () {
                             $(this).text(priceOfCarts);
                         });

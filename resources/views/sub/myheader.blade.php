@@ -123,26 +123,37 @@
                             </a>
                         </div>
                         <ul class="basket-list">
-                            <li>
-                                <a href="#" class="basket-item">
-                                    <button class="basket-item-remove"></button>
-                                    <div class="basket-item-content">
-                                        <div class="basket-item-image">
-                                            <img alt="" src="{{asset('public/assets/img/cart/2324935.jpg')}}">
-                                        </div>
-                                        <div class="basket-item-details">
-                                            <div class="basket-item-title">هندزفری بلوتوث مدل S530
-                                            </div>
-                                            <div class="basket-item-params">
-                                                <div class="basket-item-props">
-                                                    <span> ۱ عدد</span>
-                                                    <span>رنگ مشکی</span>
+                            @if(Session::has('cart'))
+
+                                @php($cartAll = Session::get('cart')))
+                                @php($arrIndex = array_keys($cartAll))
+
+                                @for ($i = 0; $i < count($cartAll); $i++)
+                                    <li>
+                                        <a href="{{route('productMore',$cartAll[$arrIndex[$i]]['slug'])}}"
+                                           class="basket-item">
+                                            <button class="basket-item-remove"></button>
+                                            <div class="basket-item-content">
+                                                <div class="basket-item-image">
+                                                    <img alt="{{$cartAll[$arrIndex[$i]]['name']}}"
+                                                         src="{{$cartAll[$arrIndex[$i]]['image']}}">
+                                                </div>
+                                                <div class="basket-item-details">
+                                                    <div class="basket-item-title">{{$cartAll[$arrIndex[$i]]['name']}}
+                                                    </div>
+                                                    <div class="basket-item-params">
+                                                        <div class="basket-item-props">
+                                                            <span>{{$cartAll[$arrIndex[$i]]['number']}}</span>
+                                                            <span>رنگ مشکی</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                                        </a>
+                                    </li>
+                                @endfor
+                            @else
+                            @endif
                         </ul>
                         <a href="#" class="basket-submit">ورود و ثبت سفارش</a>
                     </ul>
