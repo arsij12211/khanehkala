@@ -1115,6 +1115,24 @@
             $('#addProductToCart').on('click', function (e) {
                 e.preventDefault();
                 var url = $(this).attr('data-url');
+
+                function strToMoney(Number) {
+                    Number += '';
+                    Number = Number.replace(',', '');
+                    Number = Number.replace(',', '');
+                    Number = Number.replace(',', '');
+                    Number = Number.replace(',', '');
+                    Number = Number.replace(',', '');
+                    Number = Number.replace(',', '');
+                    x = Number.split('.');
+                    y = x[0];
+                    z = x.length > 1 ? '.' + x[1] : '';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(y))
+                        y = y.replace(rgx, '$1' + ',' + '$2');
+                    return y + z;
+                }
+
                 $.ajax({
                     type: "GET",
                     url: url,
@@ -1127,23 +1145,24 @@
                         let priceOfCarts = 0;
                         let rowCart = '';
                         console.table((data));
+                        console.log(parseFloat(data[1]['product_price']));
                         for (let i = 0; i < data.length; i++) {
                             priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
 
                             rowCart += "<li><a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
                                 "<button class=\"basket-item-remove\"></button>" +
                                 "<div class=\"basket-item-content\">" +
-                                    "<div class=\"basket-item-image\"><img alt='"+data[i]['product_name']+"' src='"+data[i]['product_image']+"'> " +
-                                    "</div>" +
-                                    "<div class=\"basket-item-details\">" +
-                                        "<div class=\"basket-item-title\">"+data[i]['product_name']+
-                                        "</div>"+
-                                        "<div class=\"basket-item-params\">" +
-                                            "<div class=\"basket-item-props\">" +
-                                                "<span>"+data[i]['product_number']+"</span><span>رنگ مشکی</span>" +
-                                            "</div>" +
-                                        "</div>" +
-                                    "</div>" +
+                                "<div class=\"basket-item-image\"><img alt='" + data[i]['product_name'] + "' src='" + data[i]['product_image'] + "'> " +
+                                "</div>" +
+                                "<div class=\"basket-item-details\">" +
+                                "<div class=\"basket-item-title\">" + data[i]['product_name'] +
+                                "</div>" +
+                                "<div class=\"basket-item-params\">" +
+                                "<div class=\"basket-item-props\">" +
+                                "<span>" + data[i]['product_number'] + "</span><span>رنگ مشکی</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
                                 "</div>" +
                                 "</a></li>";
                         }
@@ -1151,7 +1170,7 @@
                         $("ul.basket-list").html('');
                         $("ul.basket-list").append(rowCart)
                         $("#priceOfCarts").fadeIn(200, function () {
-                            $(this).text(priceOfCarts);
+                            $(this).text(strToMoney(priceOfCarts));
                         });
                         // console.table(data.cartSend);
                         Swal.fire({

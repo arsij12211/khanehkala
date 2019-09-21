@@ -87,7 +87,7 @@ class ShopControllers extends Controller
             $cart[$id]['name'] = $productCurrent->name;
             $cart[$id]['slug'] = $productCurrent->slug;
             $cart[$id]['image'] = $productCurrent->image;
-            
+
             Session::put('cart', $cart);
 
 
@@ -114,12 +114,12 @@ class ShopControllers extends Controller
                 $cartSend[$i]['product_name'] = $productOther->name;
                 $cartSend[$i]['product_slug'] = $productOther->slug;
                 $cartSend[$i]['product_image'] = $productOther->image;
-                $cartSend[$i]['product_price'] = number_format($productOther->price_main);
+                $cartSend[$i]['product_price'] = $productOther->price_main;
             } else {
                 $cartSend[$i]['product_name'] = $productCurrent->name;
                 $cartSend[$i]['product_slug'] = $productCurrent->slug;
                 $cartSend[$i]['product_image'] = $productCurrent->image;
-                $cartSend[$i]['product_price'] = number_format($productCurrent->price_main);
+                $cartSend[$i]['product_price'] = $productCurrent->price_main;
             }
 
             $cartSend[$i]['product_number'] = $cart[$cartIndex[$i]]['number'];
