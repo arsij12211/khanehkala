@@ -10,9 +10,23 @@
     مشاهده سبد خرید
 @endsection
 
-@section('CSS')
+@section('css')
     <style>
+        input[type=number] {
+            font-size: 1em;
+            width: 35%;
+            padding: 3px;
+            margin: 0;
+            border: 2px solid #ddd;
+            border-radius: 7px;
+            text-align: center;
+        }
 
+        input[type=number]:focus {
+            outline: none;
+            border-color: #acacac;
+            transition: all 200ms ease;
+        }
     </style>
 @endsection
 
@@ -29,7 +43,7 @@
                     </div>
                     <div class="table-responsive checkout-content default">
                         <table class="table">
-                            <tbody>
+                            <tbody id="completeCarts">
                             @if(Session::has('cart'))
                                 @php($cartAll = Session::get('cart'))
                                 @php($arrIndex = array_keys($cartAll))
@@ -37,16 +51,28 @@
                                 @for ($i = 0; $i < count($cartAll); $i++)
                                     <tr class="checkout-item">
                                         <td>
-                                            <img src="assets/img/cart/1335154.jpg" alt="">
+                                            <img width="150" height="auto" src="{{$cartAll[$arrIndex[$i]]['image']}}"
+                                                 alt="">
                                             <button class="checkout-btn-remove"></button>
-                                        </td>
+
+                                        {{--<td class="romove-item">--}}
+                                            {{--<a data-id="{{$totalCart[$i]['id']}}" href=""--}}
+                                               {{--title="حذف کامل محصول"--}}
+                                               {{--class="icon deleteCompleteCart"--}}
+                                               {{--data-url="{{route('deleteCompleteCart',$totalCart[$i]['id'])}}">--}}
+                                                {{--<i class="fa fa-trash-o"></i></a></td>--}}
+                                        {{--</td>--}}
                                         <td>
-                                            <h3 class="checkout-title">
-                                                گوشی موبایل اپل مدل iPhone X ظرفیت 256 گیگابایت
+                                            <h3 class="checkout-title" style="margin-bottom: 0;">
+                                                {{$cartAll[$arrIndex[$i]]['name']}}
                                             </h3>
                                         </td>
-                                        <td>۱ عدد</td>
-                                        <td>۱۵,۳۹۰,۰۰۰ تومان</td>
+                                        <td><input type="number" name="hours" value="{{count($cartAll)}}" min="0"
+                                                   max="23"> عدد
+                                        </td>
+                                        <td>{{number_format($cartAll[$arrIndex[$i]]['price']*$cartAll[$arrIndex[$i]]['number'])}}
+                                            تومان
+                                        </td>
                                     </tr>
                                 @endfor
                             @else
@@ -283,6 +309,36 @@
                 })
 
             });
+
+
+            $('#completeCarts').on('click', '.deleteCompleteCart[data-id]', function (e) {
+                e.preventDefault();
+                var url = $(this).attr('data-url');
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (data) {
+                        // alert("ok")
+                        $('#completeCarts' + data.id + '').fadeOut(300, function () {
+                            $(this).remove();
+                        });
+
+                        $('#countCart').text(data.totalNumberCart);
+                        $("span#cost").fadeOut(200, function () {
+                            $(this).text(data.totalPriceCart).fadeIn();
+                        });
+                        $("#totalPriceOfProducts").fadeOut(200, function () {
+                            $(this).text(data.totalPriceCart + 'تومان').fadeIn();
+                        });
+                        // swal("موفق", "با موفقیت ثبت گردید", "success");
+
+                    }, error: function (error) {
+                        console.log('ERROR');
+                        // swal("", "همه موارد را تکمیل نمایید.", "info");
+                    }
+                })  //  end of AJAX
+            })
 
 
         }); //  end of jquery

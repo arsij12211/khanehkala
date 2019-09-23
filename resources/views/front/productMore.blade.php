@@ -10,7 +10,7 @@
     جزییات محصول
 @endsection
 
-@section('CSS')
+@section('css')
     <style>
         /*for input number*/
 

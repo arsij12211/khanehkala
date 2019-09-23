@@ -16,6 +16,7 @@ use Session;
 class ShopControllers extends Controller
 {
     use UpdateCart;
+
     /*
      *
      */
@@ -67,6 +68,7 @@ class ShopControllers extends Controller
                 $cart[$id]['name'] = $productCurrent->name;
                 $cart[$id]['slug'] = $productCurrent->slug;
                 $cart[$id]['image'] = $productCurrent->image;
+                $cart[$id]['price'] = $productCurrent->price_main;
 
                 \DB::table('carts')->insert([
                     'user_id' => $userId,
@@ -88,6 +90,7 @@ class ShopControllers extends Controller
             $cart[$id]['name'] = $productCurrent->name;
             $cart[$id]['slug'] = $productCurrent->slug;
             $cart[$id]['image'] = $productCurrent->image;
+            $cart[$id]['price'] = $productCurrent->price_main;
 
             Session::put('cart', $cart);
 
