@@ -21,7 +21,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Site'], function () {
     Route::get('/productMore/{slug?}', 'ProductControllers@productMore')->name('productMore');
 
     // shop
-    Route::get('/addcart/{id}', 'ShopControllers@addcart')->name('addcart');
+    Route::get('/addcart/{id}/{colorProductId?}', 'ShopControllers@addcart')->name('addcart');
     Route::get('/seecart', 'ShopControllers@seecart')->name('seecart');
 });
 

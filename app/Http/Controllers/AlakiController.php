@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Attribute;
 use App\Category;
 use App\Product;
+use App\PublicModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -15,6 +17,9 @@ class AlakiController extends Controller
         set_time_limit(3600);
         $myTable = \DB::table('mytable')->get();
 //        dd(Category::count());
+
+        if ($myTable == null)
+            return 'baby, myTable not exists!';
 
         if (Category::count() > 0) {
 
@@ -32,19 +37,58 @@ class AlakiController extends Controller
                 'parent_id' => 0,
             ]);
 
+            $slugName = (new PublicModel())->slug_format($item->name) . Str::random(3);
             $product = Product::create([
                 'category_id' => $category->id,
                 'name' => $item->name,
                 'image' => $item->image,
                 'price_main' => $item->price_main,
-                'price_off' => $item->price_off,
-                'position' => $item->position,
                 'number' => $item->number,
+                'slug' => $slugName,
+            ]);
+
+            $product->colors()->attach(1, [
+                'number' => 10,
+            ]);
+
+            $product->colors()->attach(2, [
+                'number' => 10,
+            ]);
+
+            $product->update([
+                'number' => 20,
             ]);
 
             $i++;
         }
-        return "Done";
 
+        Attribute::create([
+            'category_id' => 14,
+            'key' => 'ram',
+        ]);
+
+        Attribute::create([
+            'category_id' => 14,
+            'key' => 'ظرفیت',
+        ]);
+
+        Attribute::create([
+            'category_id' => 14,
+            'key' => 'رزولوشن عکس',
+        ]);
+
+        if ($product = Product::find(14)) {
+            $product->attributes()->attach(1, [
+                'value'=>'4 GiB',
+            ]);
+            $product->attributes()->attach(2, [
+                'value'=>'128 GiB',
+            ]);
+            $product->attributes()->attach(3, [
+                'value'=>'24 مگاپیکسل',
+            ]);
+        }
+
+        return "Done";
     }
 }

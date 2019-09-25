@@ -399,7 +399,7 @@
                                 <div class="product-title default">
                                     <h1>
                                         {{$product->name}}
-                                        <span>Apple iPhone X 256GB Mobile Phone</span></h1>
+                                        <span>{{\Illuminate\Support\Str::slug($product->name)}}</span></h1>
                                 </div>
                                 <div class="product-directory default">
                                     <ul>
@@ -410,27 +410,30 @@
                                         <li>
                                             <span>دسته‌بندی</span> :
                                             <a href="#" class="btn-link-border">
-                                                ساعت هوشمند
+                                                {{$product->category->name}}
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="product-variants default">
                                     <span>انتخاب رنگ: </span>
-                                    <div class="radio">
-                                        <input type="radio" name="radio1" id="radio1" value="option1">
-                                        <label for="radio1">
-                                            خاکستری
-                                        </label>
-                                    </div>
-
-                                    <div class="radio">
-                                        <input type="radio" name="radio1" id="radio2" value="option2" checked="">
-                                        <label for="radio2">
-                                            نقره ای
-                                        </label>
-                                    </div>
-
+                                    @isset($colors)
+                                        @if($colors->first()->id != 1 )            {{--یعنی با رنگ--}}
+                                        @foreach($colors as $colorProduct)
+                                            <div class="radio">
+                                                <input type="radio" name="radioColorProduct"
+                                                       id="radio{{$colorProduct->pivot->id}}"
+                                                       value="{{$colorProduct->pivot->id}}">
+                                                <label for="radio{{$colorProduct->pivot->id}}">
+                                                    {{$colorProduct->name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                        @else
+                                            <div style="color: #afacac">انتخاب رنگ ندارد!</div>
+                                        @endif
+                                    @else
+                                    @endisset
                                 </div>
                                 <div class="product-guarantee default">
                                     <i class="fa fa-check-circle"></i>
@@ -439,9 +442,15 @@
                                 <div class="product-delivery-seller default">
                                     <p>
                                         <i class="now-ui-icons shopping_shop"></i>
-                                        <span>فروشنده:‌</span>
-                                        <a href="#" class="btn-link-border">ناسا</a>
+                                        <span>تعداد کالا:‌</span>
+                                        {{--                                        @can('exists-product',$product->id)--}}
+                                        <a href="#" class="btn-link-border"
+                                           style="color: darkgreen">{{$product->number}} تا در انبار</a>
+                                        {{--@else--}}
+                                        {{--<a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا در انبار</a>--}}
+                                        {{--@endcan--}}
                                     </p>
+                                    <br>
                                 </div>
                                 <div class="price-product defualt">
                                     <div class="price-value">
@@ -450,10 +459,10 @@
                                     </div>
                                     <div class="price-discount" data-title="تخفیف">
                                                 <span>
-                                                    @if ($product->price_main > 0)
-                                                        {{Illuminate\Support\Str::limit(($product->price_main-$product->price_off)/$product->price_main*100,3,'')}}
+                                                    @if ($product->active_special)
+                                                        {{--{{Illuminate\Support\Str::limit(($product->price_main-$product->price_off)/$product->price_main*100,3,'')}}--}}
                                                     @else
-                                                        0
+                                                        بدون تخفیف
                                                     @endif
                                                 </span>
                                         <span>%</span>
@@ -461,12 +470,18 @@
                                 </div>
                                 <div class="product-add default">
                                     <div class="parent-btn">
+                                        {{--                                        @can('exists-product',$product->id)--}}
                                         <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
-                                           {{--data-Id="{{$product->id}}"--}}
-                                           data-url="{{route('addcart',$product->id)}}">
+                                           data-id="{{$product->id}}">
                                             افزودن به سبد خرید
                                             <i class="now-ui-icons shopping_cart-simple"></i>
                                         </a>
+                                        {{--@else--}}
+                                        {{--<a disabled class="dk-btn" style="background-color: #e0998d">--}}
+                                        {{--افزودن به سبد خرید--}}
+                                        {{--<i class="now-ui-icons shopping_cart-simple"></i>--}}
+                                        {{--</a>--}}
+                                        {{--@endcan--}}
                                     </div>
                                 </div>
                             </div>
@@ -476,31 +491,17 @@
                                 </div>
                                 <div class="product-params default">
                                     <ul data-title="ویژگی‌های محصول">
-                                        <li>
-                                            <span>حافظه داخلی: </span>
-                                            <span> 256 گیگابایت </span>
-                                        </li>
-                                        <li>
-                                            <span>شبکه های ارتباطی: </span>
-                                            <span> 2G,3G,4G </span>
-                                        </li>
-                                        <li>
-                                            <span>رزولوشن عکس: </span>
-                                            <span> 12.0 مگاپیکسل</span>
-                                        </li>
-                                        <li>
-                                            <span>تعداد سیم کارت: </span>
-                                            <span> تک </span>
-                                        </li>
-                                        <li>
-                                            <span>ویژگی‌های خاص: </span>
-                                            <span> مقاوم در برابر آب
-                                                        مناسب عکاسی
-                                                        مناسب عکاسی سلفی
-                                                        مناسب بازی
-                                                        مجهز به حس‌گر تشخیص چهره
-                                                    </span>
-                                        </li>
+                                        @if (isset($attributes))
+                                            @if (count($attributes) > 0)
+                                                @foreach($attributes as $attr)
+                                                    <li>
+                                                        <span style="float: right">{{$attr->key}}:</span>
+                                                        <span style="float: right;"> {{$attr->pivot->value}} </span>
+                                                        <span style="clear: both;"></span>
+                                                    </li>
+                                                @endforeach
+                                            @endif
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -543,12 +544,13 @@
                                              aria-expanded="true">
                                             <article>
                                                 <h2 class="param-title">
-                                                    نقد و بررسی تخصصی
+                                                    جزییات و بررسی تخصصی
                                                     <span>{{$product->name}}</span>
                                                 </h2>
                                                 <div class="parent-expert default">
                                                     <div class="content-expert">
                                                         <p>
+                                                            {{--                                                            {!! $product->details !!}--}}
                                                             اپل پس از شایعات فراوان از جدیدترین آیپد خود رونمایی کرد
                                                             تا
                                                             به پرسش‌های فراوان علاقه‌مندان به محصولاتش
@@ -1109,29 +1111,43 @@
 
 
 @section('js')
+
     <script type="text/javascript">
         $(document).ready(function () {
 
+            function strToMoney(Number) {
+                Number += '';
+                Number = Number.replace(',', '');
+                Number = Number.replace(',', '');
+                Number = Number.replace(',', '');
+                Number = Number.replace(',', '');
+                Number = Number.replace(',', '');
+                Number = Number.replace(',', '');
+                x = Number.split('.');
+                y = x[0];
+                z = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(y))
+                    y = y.replace(rgx, '$1' + ',' + '$2');
+                return y + z;
+            }
+
             $('#addProductToCart').on('click', function (e) {
                 e.preventDefault();
-                var url = $(this).attr('data-url');
+                var product_id = $(this).attr('data-Id');
+                var colorProductId = $('input[name=\'radioColorProduct\']:checked').attr('value');
 
-                function strToMoney(Number) {
-                    Number += '';
-                    Number = Number.replace(',', '');
-                    Number = Number.replace(',', '');
-                    Number = Number.replace(',', '');
-                    Number = Number.replace(',', '');
-                    Number = Number.replace(',', '');
-                    Number = Number.replace(',', '');
-                    x = Number.split('.');
-                    y = x[0];
-                    z = x.length > 1 ? '.' + x[1] : '';
-                    var rgx = /(\d+)(\d{3})/;
-                    while (rgx.test(y))
-                        y = y.replace(rgx, '$1' + ',' + '$2');
-                    return y + z;
+                let url = '';
+                if (!colorProductId) {
+                    Swal.fire({
+                        type: 'info',
+                        text: 'لطفا، رنگ محصول را انتخاب نمایید!',
+                    });
+                    // url = '/khanehkala/addcart/' + product_id + "/" + 1;       //  1 means of free color
+                } else {
+                    url = '/khanehkala/addcart/' + product_id + "/" + colorProductId;
                 }
+                console.log(url);
 
                 $.ajax({
                     type: "GET",
@@ -1159,7 +1175,7 @@
                                 "</div>" +
                                 "<div class=\"basket-item-params\">" +
                                 "<div class=\"basket-item-props\">" +
-                                "<span>" + data[i]['product_number'] + "</span><span>رنگ مشکی</span>" +
+                                "<span>" + data[i]['product_number'] + "</span><span>رنگ " + data[i]['color_name'] + "</span>" +
                                 "</div>" +
                                 "</div>" +
                                 "</div>" +
@@ -1173,15 +1189,15 @@
                             $(this).text(strToMoney(priceOfCarts));
                         });
 
-                        if (data.length > 0){
-                            var spanTag=document.createElement("span");
+                        if (data.length > 0) {
+                            var spanTag = document.createElement("span");
                             var spanText = document.createTextNode("مشاهده ی سبد خرید");
                             spanTag.appendChild(spanText);
 
-                            var divTag=document.createElement("div");
-                            divTag.className="basket-arrow";
+                            var divTag = document.createElement("div");
+                            divTag.className = "basket-arrow";
 
-                            var linkTag=document.createElement("a");
+                            var linkTag = document.createElement("a");
                             linkTag.title = "سبد خرید";
                             linkTag.href = "./seecart";
                             linkTag.className = "basket-link";
@@ -1196,58 +1212,25 @@
                             title: 'موفقیت آمیز',
                             text: 'محصول با موفقیت، به سبد خرید اضافه گردید!',
                         });
-                        // =====================================================
-                        /*
-                        $('.product-summary').remove();
-                        $('.SeparatorCart').remove();
-                        var i;
-                        var rowCart = '';
-                        // console.log(JSON.stringify(data.productsCart[0], null, 4));
-                        if (data.userHasMiliRevenu === true) {
-                            for (i = 0; i < data.productsCart.length; i++) {
-                                rowCart += '<div class="cart-item product-summary"><div class="row">' +
-                                    '<div class="col-xs-4"><div class="image"><a href="detail.html">' +
-                                    '<img src="' + data.photos[i] + '" alt=""></a></div></div><div class="col-xs-7"><h3 class="name">' +
-                                    '<a href="index.php?page-detail">' + data.productsCart[i]["name"] + '</a></h3>' +
-                                    '<div class="price">تومان' + data.productsCart[i]["price_off"] + '</div>' +
-                                    '</div><div class="col-xs-1 action"><a data-id="' + data.idCarts[i] + '"' +
-                                    ' class="deleteCart" href="" data-url="' + data.urlsForDeleteItemCart[i] + '">' +
-                                    '<i class="fa fa-trash"></i></a></div></div> </div> <div class="SeparatorCart"></div>';
-                            }
-                        } else {
-                            for (i = 0; i < data.productsCart.length; i++) {
-                                rowCart += '<div class="cart-item product-summary"><div class="row">' +
-                                    '<div class="col-xs-4"><div class="image"><a href="detail.html">' +
-                                    '<img src="' + data.photos[i] + '" alt=""></a></div></div><div class="col-xs-7"><h3 class="name">' +
-                                    '<a href="index.php?page-detail">' + data.productsCart[i]["name"] + '</a></h3>' +
-                                    '<div class="price">تومان' + data.productsCart[i]["price_main"] + '</div>' +
-                                    '</div><div class="col-xs-1 action"><a data-id="' + data.idCarts[i] + '"' +
-                                    ' class="deleteCart" href="" data-url="' + data.urlsForDeleteItemCart[i] + '">' +
-                                    '<i class="fa fa-trash"></i></a></div></div> </div> <div class="SeparatorCart"></div>';
-                            }
-                        }
-
-                        $(rowCart).insertBefore('#nextForInsertCart');
-                        $('#countCart').text(data.totalNumberCart);
-                        $("span#cost").fadeOut(200, function () {
-                            $(this).text(data.totalPriceCart).fadeIn();
-                        });
-                        $("span#totalPrice").fadeOut(200, function () {
-                            $(this).text('تومان ' + data.totalPriceCart).fadeIn();
-                        });
-
-                        $('#showbtncheckout > a.btn-upper').attr('disabled', false);
-
-                        // console.table(data);
-                        swal("موفق", "محصول با موفقیت به سبد خرید اضافه شد", "success");
-                        // */
                     }, error: function (error) {
-                        console.log('ERROR 1');
-                        swal("", "محصول به سبد خرید اضافه نگردید.", "error");
+                        console.log('ERROR add to cart');
+                        Swal.fire({
+                            type: 'error',
+                            title: 'شکست',
+                            text: 'محصول به سبد خرید اضافه نگردید!',
+                        });
                     }
                 })
 
             });
+
+
+            // blowup scale image
+            $('img#img-product-zoom').blowup({
+                "background": "#F39C12",
+                "width": 250,
+                "height": 250
+            })
 
 
         }); //  end of jquery

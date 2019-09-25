@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCartsTable extends Migration
+class CreateColorProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,11 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('color_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->bigInteger('product_id')->unsigned();
-            $table->bigInteger('color_product_id')->unsigned();
-            $table->string('myCookie');
-            $table->ipAddress('user_ip');
-            $table->unsignedInteger('number');
-
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('set null');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('color_id');
+            $table->integer('number');
 
             $table->foreign('product_id')
                 ->references('id')
@@ -36,9 +25,9 @@ class CreateCartsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('color_product_id')
+            $table->foreign('color_id')
                 ->references('id')
-                ->on('color_product')
+                ->on('colors')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
@@ -53,6 +42,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('color_product');
     }
 }

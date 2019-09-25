@@ -20,8 +20,12 @@ class ProductControllers extends Controller
         $numberOfCarts = $updateallcarts[1];
 
         $product = Product::where('slug', $slug)->first();
-
-
-        return view('front.productMore', compact('product', 'numberOfCarts', 'priceOfCarts'));
+        if ($product) {
+            $colors = $product->colors;
+            $attributes = $product->attributes()->get();
+            return view('front.productMore', compact('product', 'colors','attributes', 'numberOfCarts', 'priceOfCarts'));
+        } else {
+            return "این مجصول وجود ندارد.";
+        }
     }
 }

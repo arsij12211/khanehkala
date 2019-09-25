@@ -6,6 +6,7 @@ use App\Cart;
 use App\Product;
 use App\PublicModel;
 use Arr;
+use Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,17 @@ class ShopControllers extends Controller
     /*
      *
      */
-    public function addcart($id)
+    public function addcart($id, $colorProductId = 1)       //  $colorProductId = 1 means of free color
     {
+
+        $productCurrent = \DB::table('products')->where('id', $id)->first();
+        $colorProduct = \DB::table('color_product')->where('id', $colorProductId)->first();
+
+//     if (!Gate::allows('exists-product', $productCurrent->id)) {
+//            return 'موجودی این محصول صفر یا اینکه، قیمت آن صفر می باشد';
+//        }
+
+
         $cartDB = '';
         $user = Auth::user();
         if ($user) {
@@ -32,76 +42,48 @@ class ShopControllers extends Controller
             $cartDB = \DB::table('carts')->where('user_ip', \request()->ip())->delete();
         }
 
-        $productCurrent = \DB::table('products')->where('id', $id)->first();
 
         if (Session::has('cart')) {
-            $cart = Session::get('cart');
-            $arrIndex = array_keys($cart);
-            for ($i = 0; $i < count($cart); $i++) {
-                Cart::create([
-                    'user_id' => $userId,
-                    'product_id' => $cart[$arrIndex[$i]]['product_id'],
-                    'myCookei' => $cart[$arrIndex[$i]]['myCookei'],
-                    'user_ip' => $cart[$arrIndex[$i]]['user_ip'],
-                    'number' => $cart[$arrIndex[$i]]['number'],
-                ]);
-            }
+            $cart = $this->updateSessionAndInsertDB($id, $colorProductId, $productCurrent, $userId);
 
-            if (isset($cart[$id])) {
-                $cart[$id]['number']++;
-                if ($userId) {
-                    Cart::where('product_id', $id)->where('user_id', $userId)->first()->update([
-                        'number' => $cart[$id]['number'],
-                    ]);
-                } else {
-                    Cart::where('product_id', $id)->where('user_ip', request()->ip())->first()->update([
-                        'number' => $cart[$id]['number'],
-                    ]);
-                }
+        } else {
+            if (Cookie::has('cart')) {
+                $cartCook = unserialize(stripslashes(Cookie::get('cart')));
+
+                //  set session
+                Session::put('cart', $cartCook);
+                $cart = $this->updateSessionAndInsertDB($id, $colorProductId, $productCurrent, $userId);
+
             } else {
                 $valueCookie = time();
                 Cookie::queue('cookieCart', $valueCookie, 30 * 24 * 60);
-                $cart[$id]['number'] = 1;
+                $cart = [];
                 $cart[$id]['product_id'] = $id;
+                $cart[$id]['color_product_id'] = $colorProductId;
+                $cart[$id]['number'] = 1;
                 $cart[$id]['user_ip'] = \request()->ip();
-                $cart[$id]['myCookei'] = $valueCookie;
+                $cart[$id]['myCookie'] = $valueCookie;
                 $cart[$id]['name'] = $productCurrent->name;
                 $cart[$id]['slug'] = $productCurrent->slug;
                 $cart[$id]['image'] = $productCurrent->image;
                 $cart[$id]['price'] = $productCurrent->price_main;
 
+                //  set session
+                Session::put('cart', $cart);
+
+                //  set cookie
+                $cartStr = serialize($cart);
+                Cookie::queue('cart', $cartStr, 30 * 24 * 60);
+
                 \DB::table('carts')->insert([
                     'user_id' => $userId,
                     'product_id' => $id,
+                    'color_product_id' => $colorProductId,
                     'user_ip' => request()->ip(),
-                    'number' => $cart[$id]['number'],
-                    'myCookei' => $valueCookie,
+                    'number' => 1,
+                    'myCookie' => $valueCookie,
                 ]);
             }
-            Session::put('cart', $cart);
-        } else {
-            $valueCookie = time();
-            Cookie::queue('cookieCart', $valueCookie, 30 * 24 * 60);
-            $cart = [];
-            $cart[$id]['product_id'] = $id;
-            $cart[$id]['number'] = 1;
-            $cart[$id]['user_ip'] = \request()->ip();
-            $cart[$id]['myCookei'] = $valueCookie;
-            $cart[$id]['name'] = $productCurrent->name;
-            $cart[$id]['slug'] = $productCurrent->slug;
-            $cart[$id]['image'] = $productCurrent->image;
-            $cart[$id]['price'] = $productCurrent->price_main;
-
-            Session::put('cart', $cart);
-
-
-            \DB::table('carts')->insert([
-                'user_id' => $userId,
-                'product_id' => $id,
-                'user_ip' => request()->ip(),
-                'number' => 1,
-                'myCookei' => $valueCookie,
-            ]);
         }
 
 
@@ -111,7 +93,17 @@ class ShopControllers extends Controller
         for ($i = 0; $i < count($cart); $i++) {
             $productId = $cart[$cartIndex[$i]]['product_id'];
 
+            $colorId = $colorProduct->color_id;
+            $colorName = '';
+            if ($colorId == 1) {    //  means of color free
+                $colorName = '-1';
+            } else {
+                $colorName = \DB::table('colors')->where('id', $colorId)->first()->name;
+            }
+
             $cartSend[$i]['product_id'] = $productId;
+            $cartSend[$i]['color_product_name'] = $productId;
+            $cartSend[$i]['color_name'] = $productId;
 
             if ($productId != $id) {
                 $productOther = \DB::table('products')->where('id', $productId)->first();
@@ -131,15 +123,63 @@ class ShopControllers extends Controller
 
         $response = array(
             'cartSend' => $cartSend,
-
         );
-//        dump($cartSend);
-//        dump(Session::get('cart'));
-        return \Response::json($cartSend);
 
-//        return [
-//            $cartSend
-//        ];
+        return \Response::json($cartSend);
+    }
+
+    private function updateSessionAndInsertDB($productId, $colorProductId, $productCurrent, $userId)
+    {
+        $cart = Session::get('cart');
+        $arrIndex = array_keys($cart);
+        for ($i = 0; $i < count($cart); $i++) {
+            Cart::create([
+                'user_id' => $userId,
+                'product_id' => $cart[$arrIndex[$i]]['product_id'],
+                'color_product_id' => $cart[$arrIndex[$i]]['color_product_id'],
+                'myCookie' => $cart[$arrIndex[$i]]['myCookie'],
+                'user_ip' => $cart[$arrIndex[$i]]['user_ip'],
+                'number' => $cart[$arrIndex[$i]]['number'],
+                'color_product_id' => $cart[$arrIndex[$i]]['color_product_id'],
+            ]);
+        }
+
+        if (isset($cart[$productId]) && isset($cart['color_product_id'])) {
+            $cart[$productId]['number']++;
+            if ($userId) {
+                Cart::where('product_id', $productId)->where('user_id', $userId)->first()->update([
+                    'number' => $cart[$productId]['number'],
+                ]);
+            } else {
+                Cart::where('product_id', $productId)->where('user_ip', request()->ip())->first()->update([
+                    'number' => $cart[$productId]['number'],
+                ]);
+            }
+        } else {
+            $valueCookie = time();
+            Cookie::queue('cookieCart', $valueCookie, 30 * 24 * 60);
+            $cart[$productId]['number'] = 1;
+            $cart[$productId]['product_id'] = $productId;
+            $cart[$productId]['color_product_id'] = $colorProductId;
+            $cart[$productId]['user_ip'] = \request()->ip();
+            $cart[$productId]['myCookie'] = $valueCookie;
+            $cart[$productId]['name'] = $productCurrent->name;
+            $cart[$productId]['slug'] = $productCurrent->slug;
+            $cart[$productId]['image'] = $productCurrent->image;
+            $cart[$productId]['price'] = $productCurrent->price_main;
+
+            \DB::table('carts')->insert([
+                'user_id' => $userId,
+                'product_id' => $productId,
+                'user_ip' => request()->ip(),
+                'number' => $cart[$productId]['number'],
+                'myCookie' => $valueCookie,
+                'color_product_id' => $colorProductId,
+            ]);
+        }
+        Session::put('cart', $cart);
+
+        return $cart;
     }
 
     public function seecart()
