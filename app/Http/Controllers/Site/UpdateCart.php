@@ -25,6 +25,8 @@ trait UpdateCart
     {
         $priceOfCarts = 0;
         $numberOfCarts = 0;
+
+
         if (Session::has('cart')) {
             $cart = Session::get('cart');
             $numberOfCarts = count($cart);
@@ -35,6 +37,12 @@ trait UpdateCart
                 $priceOfCarts += ($product->price_main * $cart[$arrIndex[$i]]['number']);
             }
             $priceOfCarts = number_format($priceOfCarts);
+        } elseif (Cookie::has('cart')) {
+            $cartCook = unserialize(stripslashes(Cookie::get('cart')));
+            //  set session
+            Session::put('cart', $cartCook);
+//            dd(Session::get('cart'));
+
         } else {
             $user = \Auth::user();
             if (\Auth::check()) {
@@ -47,7 +55,7 @@ trait UpdateCart
         }
 
         return [
-            $priceOfCarts,$numberOfCarts,
+            $priceOfCarts, $numberOfCarts,
         ];
     }
 }

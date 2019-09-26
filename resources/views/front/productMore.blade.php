@@ -1111,7 +1111,7 @@
 
 
 @section('js')
-
+    <script src="{{asset('public/assets/js/plugins/blowup.min.js')}}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -1138,12 +1138,14 @@
                 var colorProductId = $('input[name=\'radioColorProduct\']:checked').attr('value');
 
                 let url = '';
-                if (!colorProductId) {
+                if ($('.radio').length == 0) {
+                    url = '/khanehkala/addcart/' + product_id + "/" + 1;       //  1 means of free color
+                } else if (!colorProductId) {
                     Swal.fire({
                         type: 'info',
                         text: 'لطفا، رنگ محصول را انتخاب نمایید!',
                     });
-                    // url = '/khanehkala/addcart/' + product_id + "/" + 1;       //  1 means of free color
+                    return;
                 } else {
                     url = '/khanehkala/addcart/' + product_id + "/" + colorProductId;
                 }
@@ -1229,7 +1231,8 @@
             $('img#img-product-zoom').blowup({
                 "background": "#F39C12",
                 "width": 250,
-                "height": 250
+                "height": 250,
+                "round": false,
             })
 
 

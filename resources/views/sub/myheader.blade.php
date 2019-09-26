@@ -145,7 +145,7 @@
                                                     <div class="basket-item-params">
                                                         <div class="basket-item-props">
                                                             <span>{{$cartAll[$arrIndex[$i]]['number']}}</span>
-                                                            <span>رنگ مشکی</span>
+                                                            <span>رنگ {{$cartAll[$arrIndex[$i]]['color_product_name']}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
