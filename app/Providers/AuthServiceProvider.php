@@ -33,9 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define("exists-product", function ($user, $productId) {
-            $flag = false;
-            dump($flag);
-            dd($productId);
+            $flag = true;
 
             return $flag;
         });

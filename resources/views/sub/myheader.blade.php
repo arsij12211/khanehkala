@@ -127,25 +127,24 @@
                         <ul class="basket-list">
                             @if(Session::has('cart'))
                                 @php($cartAll = Session::get('cart'))
-                                @php($arrIndex = array_keys($cartAll))
 
                                 @for ($i = 0; $i < count($cartAll); $i++)
                                     <li>
-                                        <a href="{{route('productMore',$cartAll[$arrIndex[$i]]['slug'])}}"
+                                        <a href="{{route('productMore',$cartAll[$i]['slug'])}}"
                                            class="basket-item">
                                             <button class="basket-item-remove"></button>
                                             <div class="basket-item-content">
                                                 <div class="basket-item-image">
-                                                    <img alt="{{$cartAll[$arrIndex[$i]]['name']}}"
-                                                         src="{{$cartAll[$arrIndex[$i]]['image']}}">
+                                                    <img alt="{{$cartAll[$i]['name']}}"
+                                                         src="{{$cartAll[$i]['image']}}">
                                                 </div>
                                                 <div class="basket-item-details">
-                                                    <div class="basket-item-title">{{$cartAll[$arrIndex[$i]]['name']}}
+                                                    <div class="basket-item-title">{{\Illuminate\Support\Str::limit($cartAll[$i]['name'],25,'...')}}
                                                     </div>
                                                     <div class="basket-item-params">
                                                         <div class="basket-item-props">
-                                                            <span>{{$cartAll[$arrIndex[$i]]['number']}}</span>
-                                                            <span>رنگ {{$cartAll[$arrIndex[$i]]['color_product_name']}}</span>
+                                                            <span>{{$cartAll[$i]['number']}}</span>
+                                                            <span>رنگ {{$cartAll[$i]['color_product_name']}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,7 +173,9 @@
     <nav class="main-menu">
         <div class="container">
             <ul class="list float-right">
+                @php($i=0)
                 @foreach(\App\Category::query()->where('parent_id','=',0)->get() as $category)
+                    @php($i++)
                     @if(empty($category->childs))
                         <li class="list-item">
                             <a class="nav-link"
@@ -190,7 +191,9 @@
                             </ul>
                         </li>
                     @endif
-
+                    @if ($i> 6)
+                        @break
+                    @endif
                 @endforeach
                 <li class="list-item amazing-item">
                     <a class="nav-link" href="#" target="_blank">شگفت‌انگیزها</a>

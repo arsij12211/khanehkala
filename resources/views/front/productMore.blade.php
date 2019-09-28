@@ -443,20 +443,19 @@
                                     <p>
                                         <i class="now-ui-icons shopping_shop"></i>
                                         <span>تعداد کالا:‌</span>
-                                        @can('exists-product',$product->id)
-                                            <a href="#" class="btn-link-border"
-                                               style="color: darkgreen">{{$product->number}} تا در انبار</a>
-                                        @else
-                                            <a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا
-                                                در انبار</a>
-                                        @endcan
+                                        {{--                                        @can('exists-product',$product->id)--}}
+                                        <a href="#" class="btn-link-border"
+                                           style="color: darkgreen">{{$product->number}} تا در انبار</a>
+                                        {{--@else--}}
+                                        {{--<a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا در انبار</a>--}}
+                                        {{--@endcan--}}
                                     </p>
                                     <br>
                                 </div>
                                 <div class="price-product defualt">
                                     <div class="price-value">
                                         <span> {{$product->price_main}} </span>
-                                        <span class="price-currency">ریال</span>
+                                        <span class="price-currency">تومان</span>
                                     </div>
                                     <div class="price-discount" data-title="تخفیف">
                                                 <span>
@@ -471,18 +470,18 @@
                                 </div>
                                 <div class="product-add default">
                                     <div class="parent-btn">
-                                        @can('exists-product',$product->id)
-                                            <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
-                                               data-id="{{$product->id}}">
-                                                افزودن به سبد خرید
-                                                <i class="now-ui-icons shopping_cart-simple"></i>
-                                            </a>
-                                        @else
-                                            <a disabled class="dk-btn" style="background-color: #e0998d">
-                                                افزودن به سبد خرید
-                                                <i class="now-ui-icons shopping_cart-simple"></i>
-                                            </a>
-                                        @endcan
+                                        {{--                                        @can('exists-product',$product->id)--}}
+                                        <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
+                                           data-id="{{$product->id}}">
+                                            افزودن به سبد خرید
+                                            <i class="now-ui-icons shopping_cart-simple"></i>
+                                        </a>
+                                        {{--@else--}}
+                                        {{--<a disabled class="dk-btn" style="background-color: #e0998d">--}}
+                                        {{--افزودن به سبد خرید--}}
+                                        {{--<i class="now-ui-icons shopping_cart-simple"></i>--}}
+                                        {{--</a>--}}
+                                        {{--@endcan--}}
                                     </div>
                                 </div>
                             </div>
@@ -1168,6 +1167,8 @@
                         for (let i = 0; i < data.length; i++) {
                             priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
 
+                            let color_name = data[i]['color_name'];
+
                             rowCart += "<li><a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
                                 "<button class=\"basket-item-remove\"></button>" +
                                 "<div class=\"basket-item-content\">" +
@@ -1178,7 +1179,7 @@
                                 "</div>" +
                                 "<div class=\"basket-item-params\">" +
                                 "<div class=\"basket-item-props\">" +
-                                "<span>" + data[i]['product_number'] + "</span><span>رنگ " + data[i]['color_name'] + "</span>" +
+                                "<span>" + data[i]['product_number'] + "</span><span>رنگ " + color_name + "</span>" +
                                 "</div>" +
                                 "</div>" +
                                 "</div>" +

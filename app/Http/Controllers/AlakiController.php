@@ -47,11 +47,11 @@ class AlakiController extends Controller
                 'slug' => $slugName,
             ]);
 
-            $product->colors()->attach(1, [
+            $product->colors()->attach(2, [
                 'number' => 10,
             ]);
 
-            $product->colors()->attach(2, [
+            $product->colors()->attach(3, [
                 'number' => 10,
             ]);
 
