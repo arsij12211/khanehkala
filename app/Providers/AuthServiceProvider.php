@@ -35,6 +35,15 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define("exists-product", function ($user, $productId) {
             $flag = false;
             dump($flag);
+            dd($productId);
+
+            return $flag;
+        });
+
+        /*
+        Gate::define("exists-product", function ($user, $productId) {
+            $flag = false;
+            dump($flag);
             dump($productId);
             if ($product = \DB::table('products')->where('id', $productId)->first()) {
                 if ($product->price_main > 0 && $product->number > 0)
@@ -44,5 +53,6 @@ class AuthServiceProvider extends ServiceProvider
             }
             return $flag;
         });
+        //*/
     }
 }

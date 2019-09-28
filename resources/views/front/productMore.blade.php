@@ -443,12 +443,13 @@
                                     <p>
                                         <i class="now-ui-icons shopping_shop"></i>
                                         <span>تعداد کالا:‌</span>
-                                        {{--                                        @can('exists-product',$product->id)--}}
-                                        <a href="#" class="btn-link-border"
-                                           style="color: darkgreen">{{$product->number}} تا در انبار</a>
-                                        {{--@else--}}
-                                        {{--<a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا در انبار</a>--}}
-                                        {{--@endcan--}}
+                                        @can('exists-product',$product->id)
+                                            <a href="#" class="btn-link-border"
+                                               style="color: darkgreen">{{$product->number}} تا در انبار</a>
+                                        @else
+                                            <a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا
+                                                در انبار</a>
+                                        @endcan
                                     </p>
                                     <br>
                                 </div>
@@ -470,18 +471,18 @@
                                 </div>
                                 <div class="product-add default">
                                     <div class="parent-btn">
-                                        {{--                                        @can('exists-product',$product->id)--}}
-                                        <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
-                                           data-id="{{$product->id}}">
-                                            افزودن به سبد خرید
-                                            <i class="now-ui-icons shopping_cart-simple"></i>
-                                        </a>
-                                        {{--@else--}}
-                                        {{--<a disabled class="dk-btn" style="background-color: #e0998d">--}}
-                                        {{--افزودن به سبد خرید--}}
-                                        {{--<i class="now-ui-icons shopping_cart-simple"></i>--}}
-                                        {{--</a>--}}
-                                        {{--@endcan--}}
+                                        @can('exists-product',$product->id)
+                                            <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
+                                               data-id="{{$product->id}}">
+                                                افزودن به سبد خرید
+                                                <i class="now-ui-icons shopping_cart-simple"></i>
+                                            </a>
+                                        @else
+                                            <a disabled class="dk-btn" style="background-color: #e0998d">
+                                                افزودن به سبد خرید
+                                                <i class="now-ui-icons shopping_cart-simple"></i>
+                                            </a>
+                                        @endcan
                                     </div>
                                 </div>
                             </div>
@@ -1229,10 +1230,12 @@
 
             // blowup scale image
             $('img#img-product-zoom').blowup({
-                "background": "#F39C12",
-                "width": 250,
-                "height": 250,
+                "background": transparent,
+                "width": 300,
+                "height": 400,
                 "round": false,
+                "cursor": false,
+                "scale": 1,
             })
 
 
