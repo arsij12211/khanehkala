@@ -25,16 +25,16 @@ trait UpdateCart
     {
         $priceOfCarts = 0;
         $numberOfCarts = 0;
-
+        $carts=[];
 
         if (Session::has('cart')) {
-            $cart = Session::get('cart');
-            $numberOfCarts = count($cart);
+            $carts = Session::get('cart');
+            $numberOfCarts = count($carts);
 
-            $arrIndex = array_keys($cart);
-            for ($i = 0; $i < count($cart); $i++) {
-                $product = \DB::table('products')->where('id', $cart[$arrIndex[$i]]['product_id'])->first();
-                $priceOfCarts += ($product->price_main * $cart[$arrIndex[$i]]['number']);
+            $arrIndex = array_keys($carts);
+            for ($i = 0; $i < count($carts); $i++) {
+                $product = \DB::table('products')->where('id', $carts[$arrIndex[$i]]['product_id'])->first();
+                $priceOfCarts += ($product->price_main * $carts[$arrIndex[$i]]['number']);
             }
             $priceOfCarts = number_format($priceOfCarts);
         } elseif (Cookie::has('cart')) {
@@ -55,7 +55,7 @@ trait UpdateCart
         }
 
         return [
-            $priceOfCarts, $numberOfCarts,
+            $priceOfCarts, $numberOfCarts, $carts,
         ];
     }
 }

@@ -29,7 +29,6 @@
     @yield('css')
 
 
-
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -41,8 +40,8 @@
 <div class="wrapper default">
 
     <!-- header -->
-    @includeIf('sub.myheader')
-    <!-- header -->
+@includeIf('sub.myheader')
+<!-- header -->
 
     <main class="main default">
         <div class="container">
@@ -63,7 +62,7 @@
     </main>
 
 
-@includeIf('sub.myfooter')
+    @includeIf('sub.myfooter')
 </div>
 </body>
 <!--   Core JS Files   -->
@@ -92,5 +91,126 @@
 <script src="{{asset('public/assets/js/plugins/JsLocalSearch.js')}}" type="text/javascript"></script>
 <!-- Main Js -->
 <script src="{{asset('public/assets/js/main.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    function strToMoney(Number) {
+        Number += '';
+        Number = Number.replace(',', '');
+        Number = Number.replace(',', '');
+        Number = Number.replace(',', '');
+        Number = Number.replace(',', '');
+        Number = Number.replace(',', '');
+        Number = Number.replace(',', '');
+        x = Number.split('.');
+        y = x[0];
+        z = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(y))
+            y = y.replace(rgx, '$1' + ',' + '$2');
+        return y + z;
+    }
+
+    function arrayKeys(input) {
+        var output = new Array();
+        var counter = 0;
+        for (let i in input) {
+            output[counter++] = i;
+        }
+        return output;
+    }
+
+    $(document).ready(function () {
+
+        $('#cartsproduct').on('click', '.deleteCart[data-id]', function (e) {
+            e.preventDefault();
+            let idRowDeleted = $(this).attr('data-id');
+            let url = $(this).attr('data-url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (data) {
+
+                    console.table(data);
+                    if (data.length > 0) {
+                        // console.log('یک آیتم از سبد خرید حذف شد.');
+                        $("#numberOfCarts").fadeIn(200, function () {
+                            $(this).text(data.length);
+                        });
+
+                        let priceOfCarts = 0;
+                        let rowCart = '';
+                        let arrIndex = arrayKeys(data);
+                        for (let i = 0; i < data.length; i++) {
+                            priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
+
+                            let color_name = data[i]['color_name'];
+
+                            rowCart += "<li id='cart" + arrIndex[i] + "' style='position: relative'><button data-url='../deleteCart/" + arrIndex[i] + "'  data-id='" + arrIndex[i] + "' class=\"basket-item-remove deleteCart\"></button>" +
+                                "<a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
+                                "<div class=\"basket-item-content\">" +
+                                "<div class=\"basket-item-image\"><img alt='" + data[i]['product_name'] + "' src='" + data[i]['product_image'] + "'> " +
+                                "</div>" +
+                                "<div class=\"basket-item-details\">" +
+                                "<div class=\"basket-item-title\">" + data[i]['product_name'] +
+                                "</div>" +
+                                "<div class=\"basket-item-params\">" +
+                                "<div class=\"basket-item-props\">" +
+                                "<span>" + data[i]['product_number'] + "</span><span>رنگ " + color_name + "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</a></li>";
+                        }
+
+                        $("ul.basket-list").html('');
+                        $("ul.basket-list").append(rowCart);
+                        $("#priceOfCarts").fadeIn(200, function () {
+                            $(this).text(strToMoney(priceOfCarts));
+                        });
+
+                    } else {
+                        $("#numberOfCarts").fadeIn(200, function () {
+                            $(this).text('0');
+                        });
+                        $("ul#cartsproduct").html('');
+                        $("#priceOfCarts").text('0');
+                        $("#basket-header-id > a.basket-link").html('');
+
+
+                        let divText = document.createTextNode("سبد خرید شما خالی هست!");
+                        let divTag = document.createElement("div");
+                        divTag.className = "basket-item-content";
+                        divTag.style.cssText = 'padding: 5%';
+                        divTag.appendChild(divText);
+
+                        let liTag = document.createElement("li");
+                        liTag.style.cssText = 'text-align: center;';
+                        liTag.appendChild(divTag);
+
+                        document.getElementById('cartsproduct').appendChild(liTag);
+
+                        let basketSubmitBtn = document.querySelector('a.basket-submit');
+                        basketSubmitBtn.style.backgroundColor = '#bbfff7';
+                        basketSubmitBtn.style.color = 'gray';
+                        basketSubmitBtn.href = '';
+
+                        Swal.fire({
+                            type: 'info',
+                            title: 'سبد خرید',
+                            text: 'محصولی در سبد خرید موجود نمی باشد.',
+                        });
+                    }
+                }, error: function (error) {
+                    console.log('ERROR');
+                    // swal("", "همه موارد را تکمیل نمایید.", "info");
+                }
+            })
+        });
+
+    });                                 //      end of Jquery
+
+</script>
 @yield('js')
 </html>

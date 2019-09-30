@@ -22,6 +22,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Site'], function () {
 
     // shop
     Route::get('/addcart/{id}/{colorProductId?}', 'ShopControllers@addcart')->name('addcart');
+    Route::get('/deleteCart/{id}', 'ShopControllers@deleteCart')->name('deleteCart');
     Route::get('/seecart', 'ShopControllers@seecart')->name('seecart');
 });
 

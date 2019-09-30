@@ -117,22 +117,23 @@
                                 </span>
                                 <span> تومان</span>
                             </div>
-                            @if (Session::has('cart'))
+                            @if(isset($cartAll) && count($cartAll) > 0)
                                 <a id="seecart" href="{{route('seecart')}}" class="basket-link">
                                     <span>مشاهده سبد خرید</span>
                                     <div class="basket-arrow"></div>
                                 </a>
                             @endif
                         </div>
-                        <ul class="basket-list">
-                            @if(Session::has('cart'))
-                                @php($cartAll = Session::get('cart'))
+                        <ul class="basket-list" id="cartsproduct">
+                            @if(isset($cartAll) && count($cartAll) > 0)
+                                @php($arrIndex = array_keys($cartAll))
 
                                 @for ($i = 0; $i < count($cartAll); $i++)
-                                    <li>
+                                    <li id="cart{{$arrIndex[$i]}}" style="position: relative">
+                                        <button data-id="{{$arrIndex[$i]}}" class="basket-item-remove deleteCart"
+                                                data-url="{{route('deleteCart',$arrIndex[$i])}}"></button>
                                         <a href="{{route('productMore',$cartAll[$i]['slug'])}}"
                                            class="basket-item">
-                                            <button class="basket-item-remove"></button>
                                             <div class="basket-item-content">
                                                 <div class="basket-item-image">
                                                     <img alt="{{$cartAll[$i]['name']}}"
@@ -160,7 +161,7 @@
                                 </li>
                             @endif
                         </ul>
-                        @if (Session::has('cart'))
+                        @if(isset($cartAll) && count($cartAll) > 0)
                             <a href="#" class="basket-submit">ورود و ثبت سفارش</a>
                         @else
                             <a style="background-color: #bbfff7;color: gray;" class="basket-submit">ورود و ثبت سفارش</a>

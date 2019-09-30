@@ -513,7 +513,7 @@ header.main-header .cart .dropdown-menu .basket-item-remove {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: -5px;
+    right: 0px;
     border-radius: 50%;
     background-color: #eaeaea;
     width: 20px;

@@ -1115,23 +1115,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            function strToMoney(Number) {
-                Number += '';
-                Number = Number.replace(',', '');
-                Number = Number.replace(',', '');
-                Number = Number.replace(',', '');
-                Number = Number.replace(',', '');
-                Number = Number.replace(',', '');
-                Number = Number.replace(',', '');
-                x = Number.split('.');
-                y = x[0];
-                z = x.length > 1 ? '.' + x[1] : '';
-                var rgx = /(\d+)(\d{3})/;
-                while (rgx.test(y))
-                    y = y.replace(rgx, '$1' + ',' + '$2');
-                return y + z;
-            }
-
             $('#addProductToCart').on('click', function (e) {
                 e.preventDefault();
                 var product_id = $(this).attr('data-Id');
@@ -1162,15 +1145,16 @@
 
                         let priceOfCarts = 0;
                         let rowCart = '';
-                        console.table((data));
+                        // console.table((data));
                         // console.log(parseFloat(data[1]['product_price']));
+                        let arrIndex = arrayKeys(data);
                         for (let i = 0; i < data.length; i++) {
                             priceOfCarts += (parseFloat(data[i]['product_price']) * parseFloat(data[i]['product_number']));
 
                             let color_name = data[i]['color_name'];
 
-                            rowCart += "<li><a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
-                                "<button class=\"basket-item-remove\"></button>" +
+                            rowCart += "<li id='cart" + arrIndex[i] + "' style='position: relative'><button data-url='../deleteCart/" + arrIndex[i] + "'  data-id='" + arrIndex[i] + "' class=\"basket-item-remove deleteCart\"></button>" +
+                                "<a href='./" + data[i]['product_slug'] + "' class=\"basket-item\">" +
                                 "<div class=\"basket-item-content\">" +
                                 "<div class=\"basket-item-image\"><img alt='" + data[i]['product_name'] + "' src='" + data[i]['product_image'] + "'> " +
                                 "</div>" +
@@ -1193,7 +1177,7 @@
                             $(this).text(strToMoney(priceOfCarts));
                         });
 
-                        if (data.length > 0) {
+                        if (data.length > 0 && data.length <= 1) {
                             var spanTag = document.createElement("span");
                             var spanText = document.createTextNode("مشاهده ی سبد خرید");
                             spanTag.appendChild(spanText);
@@ -1203,7 +1187,7 @@
 
                             var linkTag = document.createElement("a");
                             linkTag.title = "سبد خرید";
-                            linkTag.href = "./seecart";
+                            linkTag.href = "../seecart";
                             linkTag.className = "basket-link";
                             linkTag.appendChild(spanTag);
                             linkTag.appendChild(divTag);

@@ -18,12 +18,13 @@ class ProductControllers extends Controller
         $updateallcarts = $this->updateAllCarts();
         $priceOfCarts = $updateallcarts[0];
         $numberOfCarts = $updateallcarts[1];
+        $cartAll = $updateallcarts[2];
 
         $product = Product::where('slug', $slug)->first();
         if ($product) {
             $colors = $product->colors;
             $attributes = $product->attributes()->get();
-            return view('front.productMore', compact('product', 'colors','attributes', 'numberOfCarts', 'priceOfCarts'));
+            return view('front.productMore', compact('product', 'colors','attributes', 'numberOfCarts', 'priceOfCarts','cartAll'));
         } else {
             return "این مجصول وجود ندارد.";
         }
