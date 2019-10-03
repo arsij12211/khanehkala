@@ -272,7 +272,7 @@
                                          data-zoom-image="{{$product->image}}"
                                          width="411"/>
                                     {{--<img class="zoom-img" id="img-product-zoom"--}}
-                                    {{--src="{{asset('public/assets/img/product/1335154.jpg')}}"--}}
+                                    {{--src="{{asset('pexists-productublic/assets/img/product/1335154.jpg')}}"--}}
                                     {{--data-zoom-image="{{asset('public/assets/img/product/13351544.jpg')}}"--}}
                                     {{--width="411"/>--}}
 
@@ -443,12 +443,13 @@
                                     <p>
                                         <i class="now-ui-icons shopping_shop"></i>
                                         <span>تعداد کالا:‌</span>
-                                        {{--                                        @can('exists-product',$product->id)--}}
-                                        <a href="#" class="btn-link-border"
-                                           style="color: darkgreen">{{$product->number}} تا در انبار</a>
-                                        {{--@else--}}
-                                        {{--<a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا در انبار</a>--}}
-                                        {{--@endcan--}}
+                                        @if($product->is_number_and_price_product)
+                                            <a href="#" class="btn-link-border"
+                                               style="color: darkgreen">{{$product->number}} تا در انبار</a>
+                                        @else
+                                            <a href="#" class="btn-link-border" style="color: darkred">عدم موجودی کالا
+                                                در انبار</a>
+                                        @endif
                                     </p>
                                     <br>
                                 </div>
@@ -470,18 +471,18 @@
                                 </div>
                                 <div class="product-add default">
                                     <div class="parent-btn">
-                                        {{--                                        @can('exists-product',$product->id)--}}
-                                        <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
-                                           data-id="{{$product->id}}">
-                                            افزودن به سبد خرید
-                                            <i class="now-ui-icons shopping_cart-simple"></i>
-                                        </a>
-                                        {{--@else--}}
-                                        {{--<a disabled class="dk-btn" style="background-color: #e0998d">--}}
-                                        {{--افزودن به سبد خرید--}}
-                                        {{--<i class="now-ui-icons shopping_cart-simple"></i>--}}
-                                        {{--</a>--}}
-                                        {{--@endcan--}}
+                                        @if($product->is_number_and_price_product)
+                                            <a id="addProductToCart" class="dk-btn dk-btn-info" href=""
+                                               data-id="{{$product->id}}">
+                                                افزودن به سبد خرید
+                                                <i class="now-ui-icons shopping_cart-simple"></i>
+                                            </a>
+                                        @else
+                                            <a disabled class="dk-btn" style="background-color: #e0998d">
+                                                افزودن به سبد خرید
+                                                <i class="now-ui-icons shopping_cart-simple"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

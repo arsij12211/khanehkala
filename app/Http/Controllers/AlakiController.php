@@ -79,16 +79,22 @@ class AlakiController extends Controller
 
         if ($product = Product::find(14)) {
             $product->attributes()->attach(1, [
-                'value'=>'4 GiB',
+                'value' => '4 GiB',
             ]);
             $product->attributes()->attach(2, [
-                'value'=>'128 GiB',
+                'value' => '128 GiB',
             ]);
             $product->attributes()->attach(3, [
-                'value'=>'24 مگاپیکسل',
+                'value' => '24 مگاپیکسل',
             ]);
         }
 
         return "Done";
+    }
+
+    public function getTestAccessor()
+    {
+        $p = Product::find(14);
+        return $p->is_number_and_price_product;
     }
 }

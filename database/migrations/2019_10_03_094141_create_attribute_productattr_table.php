@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColorProduct extends Migration
+class CreateAttributeProductattrTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,25 +12,22 @@ class CreateColorProduct extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('color_product', function (Blueprint $table) {
+    {   //  ps_product_attribute_combination table
+        Schema::create('attribute_productattr', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('color_id');
-            $table->integer('number');
+            $table->unsignedBigInteger('attribute_id');
+            $table->unsignedBigInteger('productattr_id');
 
-            $table->foreign('product_id')
+            $table->foreign('attribute_id')
                 ->references('id')
-                ->on('products')
+                ->on('attributes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
-            $table->foreign('color_id')
+            $table->foreign('productattr_id')
                 ->references('id')
-                ->on('colors')
+                ->on('productattrs')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
             $table->timestamps();
         });
     }
@@ -42,6 +39,6 @@ class CreateColorProduct extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('color_product');
+        Schema::dropIfExists('attribute_productattr');
     }
 }

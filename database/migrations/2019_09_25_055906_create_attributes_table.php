@@ -14,13 +14,13 @@ class CreateAttributesTable extends Migration
     public function up()
     {
         Schema::create('attributes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
-            $table->string('key');
+            $table->bigInteger('id')->unique()->unsigned();
+            $table->unsignedBigInteger('property_id');          //  id_attribute_group
+            $table->string('color');
 
-            $table->foreign('category_id')
+            $table->foreign('property_id')
                 ->references('id')
-                ->on('categories')
+                ->on('properties')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

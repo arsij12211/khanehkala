@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'mobile', 'mobile_temp', 'uuid', 'activation_code',
-        'user_ip', 'password', 'email_verified_at', 'mobile_verified_at','birthday', 'avatar', 'verifyForget',
+        'user_ip', 'password', 'email_verified_at', 'mobile_verified_at', 'birthday', 'avatar', 'verifyForget',
     ];
 
     /**
@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','activation_code'
+        'password', 'remember_token', 'activation_code'
     ];
 
     /**
@@ -38,4 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'mobile_verified_at' => 'datetime',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->name;
+    }
 }
