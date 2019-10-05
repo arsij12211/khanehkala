@@ -14,9 +14,9 @@ class CreateProductattrTable extends Migration
     public function up()
     {
         Schema::create('productattrs', function (Blueprint $table) {
-            $table->bigInteger('id')->unique()->unsigned();                 //  id_product_attribute
+//            $table->bigInteger('id')->unique()->unsigned();                 //  id_product_attribute
+            $table->bigIncrements('id');                 //  id_product_attribute
             $table->unsignedBigInteger('product_id');
-            $table->decimal('wholesale_price', 17, 0)->default(0);      //  (price_main of products table) + (Price of tax)
             $table->bigInteger('number')->nullable();
             $table->bigInteger('minimal_number')->nullable();
 

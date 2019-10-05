@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //================================Alaki Controller==============================
 Route::get('/convert', 'AlakiController@convertMyTableToProducts')->name('convert');
 Route::get('/getTestAccessor', 'AlakiController@getTestAccessor')->name('getTestAccessor');
+Route::get('/convertImage', 'AlakiController@convertImage')->name('convertImage');
 
 
 //==============================================================================

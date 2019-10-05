@@ -14,7 +14,8 @@ class CreatePeropertiesTable extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->bigInteger('id')->unique()->unsigned();
+//            $table->bigInteger('id')->unique()->unsigned();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('public_name');
             $table->timestamps();

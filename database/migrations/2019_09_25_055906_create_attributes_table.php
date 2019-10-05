@@ -14,9 +14,10 @@ class CreateAttributesTable extends Migration
     public function up()
     {
         Schema::create('attributes', function (Blueprint $table) {
-            $table->bigInteger('id')->unique()->unsigned();
+//            $table->bigInteger('id')->unique()->unsigned();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('property_id');          //  id_attribute_group
-            $table->string('color');
+            $table->string('name');
 
             $table->foreign('property_id')
                 ->references('id')

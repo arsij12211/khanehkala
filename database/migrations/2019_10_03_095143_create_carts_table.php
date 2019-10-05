@@ -17,8 +17,8 @@ class CreateCartsTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('productattr_id')->unsigned();
+            $table->bigInteger('attribute_id')->unsigned();
             $table->string('myCookie');
             $table->ipAddress('user_ip');
             $table->unsignedInteger('number');
@@ -30,15 +30,15 @@ class CreateCartsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('set null');
 
-            $table->foreign('product_id')
-                ->references('id')
-                ->on('products')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-
             $table->foreign('productattr_id')
                 ->references('id')
                 ->on('productattrs')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('attribute_id')
+                ->references('id')
+                ->on('attributes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

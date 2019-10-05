@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['category_id', 'name', 'image', 'details', 'price_main', 'special', 'slug', 'active', 'position', 'totalSelling', 'latest', 'totalVisited', 'number'];
+    protected $fillable = [
+        'category_id', 'name', 'details', 'price_main', 'number', 'slug', 'meta_title', 'meta_keyword', 'meta_description', 'type', 'active', 'active_special', 'totalSelling', 'totalVisited',
+    ];
 
     public function getRouteKeyName()
     {
@@ -19,7 +21,7 @@ class Product extends Model
         if ($this->number > 0 && $this->price_main != '0') {
             $flag = true;
         }
-        return $flag.'';
+        return $flag . '';
     }
 
     public function category()
@@ -27,13 +29,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function colors()
+    public function productAttrs()
     {
-        return $this->belongsToMany(Color::class, 'color_product')->withPivot(['id', 'number'])->withTimestamps();
-    }
-
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'attribute_product')->withPivot(['id', 'value'])->withTimestamps();
+        return $this->hasMany(ProductAttr::class);
     }
 }

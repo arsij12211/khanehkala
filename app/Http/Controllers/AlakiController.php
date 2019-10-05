@@ -12,6 +12,23 @@ use Illuminate\Support\Str;
 
 class AlakiController extends Controller
 {
+    public function convertImage()
+    {
+        $images = DB::table('ps_image')->get();
+        $myimages ='';
+        $i = 0;
+        foreach ($images as $item) {
+            if ($item->cover == null){
+                $item->cover=0;
+            }
+            $myimages .= "Image::create([ 'id' => $item->id_image,";
+            $myimages .= " 'productattr_id' => $item->id_product,";
+            $myimages .= " 'cover' => $item->cover, ]); ";
+        }
+
+        return $myimages;
+    }
+
     public function convertMyTableToProducts()
     {
         set_time_limit(3600);
